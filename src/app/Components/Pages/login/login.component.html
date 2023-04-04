@@ -1,0 +1,47 @@
+<div class="container-main-login">
+  <div class="wrapper">
+    <div class="container-login" >
+      <div class="container-hero">
+        <p class="login-title">
+          {{ isSignup ? "Looks like you're new here!" : "Login" }}
+        </p>
+        <p class="login-subtitle">
+          {{
+            isSignup
+              ? "Sign up with your email to get started"
+              : "Get access to your Orders, Wishlist and Recommendations"
+          }}
+        </p>
+      </div>
+      <div class="container-form">
+        <form>
+          <div class="container-form-top">
+            <input
+              type="text"
+              name=""
+              id=" "
+              placeholder="Enter Email Address"
+            />
+            <span
+              >By continuing, you agree to Flipkart's
+              <a href="javascript:void(0)">Terms of Use</a> and
+              <a href="javascript:void(0)">Privacy Policy</a>.</span
+            >
+            <button  class="btn-login">
+              {{ isSignup ? "CONTINUE" : "Login" }}
+            </button>
+            <button *ngIf="isSignup" (click)="signupToggle(false)" type="button" class="btn-signup">
+                Existing User? Log in
+            </button>
+          </div>
+          <a
+            *ngIf="!isSignup"
+            href="javascript:void(0)"
+            (click)="signupToggle(true)"
+            >New to Flipkart? Create an account</a
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

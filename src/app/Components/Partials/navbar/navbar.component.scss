@@ -39,8 +39,10 @@
   display: flex;
   margin: 0 20px;
   width: 564px;
+  border-radius: 3px;
+  overflow: hidden;
   input {
-    padding: 10px 20px;
+    padding: 5px 16px;
     outline: none;
     width: 100%;
     background-color: variables.$color-white-bg;
@@ -48,7 +50,7 @@
   }
   .icon {
     color: variables.$color-brand-blue;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: variables.$color-white-bg;
     cursor: pointer;
   }
@@ -86,5 +88,30 @@
   }
   &:hover fa-icon {
     transform: rotate(180deg);
+  }
+}
+
+.dropbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  pointer-events: visibleFill;
+  div {
+    display: flex;
+    gap: 15px;
+
+    fa-icon {
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 1.5em;
+      height: fit-content;
+      color: variables.$color-white-bg;
+    }
   }
 }

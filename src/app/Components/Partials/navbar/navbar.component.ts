@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCartShopping, faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faChevronDown, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +7,11 @@ import { faCartShopping, faChevronDown, faMagnifyingGlass } from '@fortawesome/f
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  searchIcon = faMagnifyingGlass
-  cartIcon = faCartShopping
-  chevronIcon = faChevronDown
+  searchIcon = faMagnifyingGlass;
+  cartIcon = faCartShopping;
+  chevronIcon = faChevronDown;
+  closeIcon = faXmark
+  showLogin:boolean = false;
+
+  
 }

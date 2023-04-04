@@ -1,3 +1,4 @@
+@use './variables';
 @font-face {
   font-family: Roboto;
   src: url(assets/Fonts/Roboto/Roboto-Thin.ttf) format("truetype");
@@ -34,9 +35,14 @@
   box-sizing: border-box;
 }
 body{
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
+    background-color: variables.$color-page-bg;
+    color: variables.$color-grey-grade5;
 }
 .wrapper{
     width: min(1600px, 100%);
     margin: auto;
+}
+router-outlet{
+  display: none;
 }

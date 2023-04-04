@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginModule } from '../../Pages/login/login.module';
 
 
 
@@ -11,7 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LoginModule
   ],
   exports:[
     NavbarComponent

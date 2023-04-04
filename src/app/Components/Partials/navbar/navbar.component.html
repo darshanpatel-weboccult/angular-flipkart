@@ -18,15 +18,20 @@
 
       <!-- SEARCH -->
       <div class="container-search">
-        <input type="text" name="search" id="inpSearch" placeholder="Search for products, brands and more">
+        <input
+          type="text"
+          name="search"
+          id="inpSearch"
+          placeholder="Search for products, brands and more"
+        />
         <div class="icon">
-            <fa-icon [icon]="searchIcon" ></fa-icon>
+          <fa-icon [icon]="searchIcon"></fa-icon>
         </div>
       </div>
 
       <!-- LOGIN -->
       <div class="container-login">
-        <a href="javascript:void(0)">Login</a>
+        <a href="javascript:void(0)" (click)="showLogin = true">Login</a>
       </div>
 
       <!-- Become a seller -->
@@ -36,14 +41,26 @@
 
       <!-- More -->
       <div class="container-more">
-        <a href="javascript:void(0)">More <fa-icon [icon]="chevronIcon"></fa-icon></a>
+        <a href="javascript:void(0)"
+          >More <fa-icon [icon]="chevronIcon"></fa-icon
+        ></a>
       </div>
 
       <!-- Cart -->
       <div class="container-cart">
-        <a href="javascript:void(0)"><fa-icon [icon]="cartIcon"></fa-icon> Cart</a>
+        <a href="javascript:void(0)"
+          ><fa-icon [icon]="cartIcon"></fa-icon> Cart</a
+        >
       </div>
-
     </div>
   </div>
 </div>
+
+<ng-container *ngIf="showLogin">
+  <div class="dropbox" (click)="showLogin = false">
+    <div (click)="$event.stopPropagation()">
+      <app-login></app-login>
+      <fa-icon [icon]="closeIcon" (click)="showLogin = false"></fa-icon>
+    </div>
+  </div>
+</ng-container>

@@ -1,1 +1,6 @@
-@use '../variables';
+@use "../variables";
+
+header {
+  position: sticky;
+  top: 0;
+}
