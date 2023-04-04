@@ -1,0 +1,90 @@
+@use "../../../../variables";
+
+.container-main {
+  background-color: variables.$color-brand-blue;
+}
+.container-navbar {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-logo {
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 75px;
+  }
+  a {
+    text-decoration: none;
+    color: variables.$color-white-bg;
+    font-style: italic;
+    font-size: 11px;
+    &:hover {
+      text-decoration: underline;
+    }
+    img {
+      width: 10px;
+      margin-left: 3px;
+    }
+    span {
+      color: variables.$color-primary-yellow;
+      font-weight: 500;
+    }
+  }
+}
+
+.container-search {
+  display: flex;
+  margin: 0 20px;
+  width: 564px;
+  input {
+    padding: 10px 20px;
+    outline: none;
+    width: 100%;
+    background-color: variables.$color-white-bg;
+    border: 2px solid variables.$color-white-bg;
+  }
+  .icon {
+    color: variables.$color-brand-blue;
+    padding: 10px 20px;
+    background-color: variables.$color-white-bg;
+    cursor: pointer;
+  }
+}
+
+.container-login {
+  margin: 0 20px;
+  a {
+    text-decoration: none;
+    background-color: variables.$color-white-bg;
+    padding: 7px 35px;
+    font-weight: 500;
+    color: variables.$color-brand-blue;
+  }
+}
+.container-seller,
+.container-more,
+.container-cart {
+  position: relative;
+  margin: 0 20px;
+  a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: variables.$color-white-bg;
+    font-weight: 500;
+  }
+}
+
+.container-more {
+  fa-icon {
+    font-size: 10px;
+    transition: all 300ms ease;
+  }
+  &:hover fa-icon {
+    transform: rotate(180deg);
+  }
+}
