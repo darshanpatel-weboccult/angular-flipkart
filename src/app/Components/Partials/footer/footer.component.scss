@@ -1,0 +1,62 @@
+@use "../../../../variables";
+.container {
+  &-main-footer {
+    background-color: variables.$color-grey-grade5;
+  }
+  &-quicklinks {
+    display: flex;
+    padding: 40px 60px;
+    & > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      height: fit-content;
+      font-size: 12px;
+      color: variables.$color-grey-grade4;
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        list-style: none;
+        a {
+          text-decoration: none;
+          color: variables.$color-white-bg;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .container-mail, .container-address{
+        ul{
+            gap: 3px;
+            p{
+                color: variables.$color-white-bg;
+                a{
+                    color: variables.$color-brand-blue;
+                }
+            }
+        }
+    }
+    .container-mail{
+        padding: 0 25px;
+        border-left: 1px solid #454d5e;
+    }
+}
+
+&-footer-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 25px 0;
+    border-top: 1px solid #454d5e;
+    color: variables.$color-white;
+    span{
+        display: flex;
+        font-size: 14px;
+        align-items: flex-start;
+        gap: 8px;
+    }
+  }
+}
