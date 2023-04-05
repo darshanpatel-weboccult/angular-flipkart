@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterModule } from './Components/Partials/footer/footer.module';
 import { LoginModule } from './Components/Pages/login/login.module';
 import { HomeModule } from './Components/Pages/home/home.module';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeModule } from './Components/Pages/home/home.module';
     NavbarModule,
     FooterModule,
     LoginModule,
-    HomeModule
+    HomeModule,
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
