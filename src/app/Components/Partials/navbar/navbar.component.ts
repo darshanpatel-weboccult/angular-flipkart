@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCartShopping, faChevronDown, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,5 +14,10 @@ export class NavbarComponent {
   closeIcon = faXmark
   showLogin:boolean = false;
 
-  
+  constructor(private router:Router){}
+
+  changeShowLogin(){
+    if(this.router.url.includes('login')) return;
+    this.showLogin = true;
+  }
 }

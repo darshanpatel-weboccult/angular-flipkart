@@ -1,0 +1,40 @@
+@use "../../../../variables" as v;
+.container {
+  &-quicknavs {
+    background-color: v.$color-white-bg;
+    box-shadow: 0 0 2px 0px  rgba($color: #000000, $alpha: .6);
+    .wrapper1280 {
+      width: min(100%, 1280px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto;
+    }
+    .quicknav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 12px;
+      cursor: pointer;
+      &:hover{
+        p{
+            color: v.$color-brand-blue;
+        }
+      }
+      img {
+        max-width: 64px;
+        aspect-ratio: 1;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+  &-home{
+    .wrapper{
+        padding: 10px;
+    }
+  }
+}
