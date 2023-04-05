@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgxSlickModule } from 'ngx-simple-slick';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './Components/Partials/navbar/navbar.module';
@@ -22,7 +22,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     FooterModule,
     LoginModule,
     HomeModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    NgxSlickModule
   ],
   providers: [],
   bootstrap: [AppComponent]

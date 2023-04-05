@@ -4375,6 +4375,13 @@ ng-image-slider@^7.0.0:
   dependencies:
     tslib "^2.3.0"
 
+ngx-simple-slick@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-simple-slick/-/ngx-simple-slick-2.0.0.tgz#6413e446bae5738edaa1b9e645378c67981768f4"
+  integrity sha512-KY7JMhS9z+zI4BA4l2dbDhJXmCtFE+1NvY1TjX7kGuzmL4184tcJwMlrHf/YQoGx/+riMZ4YeVPKne57ElwfPw==
+  dependencies:
+    tslib "^2.3.0"
+
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"
