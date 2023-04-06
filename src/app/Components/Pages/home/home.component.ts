@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   faChevronLeft,
   faChevronRight,
@@ -6,17 +6,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { NgImageSliderComponent } from 'ng-image-slider';
 import { NgxslickComponent } from 'ngx-simple-slick';
+import { Product, ProductService } from 'src/app/Shared/product.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit {
-  @ViewChild('sliderHero') heroSlider!: NgImageSliderComponent;
+export class HomeComponent implements OnInit {
   chevronLeft = faChevronLeft;
   chevronRight = faChevronRight;
   iconStar = faStar;
+  products: Product[] = [];
+  isLoading: boolean = false;
   heroImages: any[] = [
     { thumbImage: 'assets/Images/heroSliderImg1.jpg' },
     { thumbImage: 'assets/Images/heroSliderImg3.jpg' },
@@ -364,9 +366,22 @@ export class HomeComponent implements AfterViewInit {
     },
   ];
 
-  ngAfterViewInit(): void {
-    console.log(this.heroSlider);
+  constructor(private productService: ProductService) {}
+
+  async ngOnInit(): Promise<void> {
+    this.isLoading = true;
+    const newProducts = await this.productService.getAllProducts();
+    this.products = newProducts;
+    this.isLoading = false;
   }
+
+  getProductsByCategory(category: 'electronics' | 'beauty'): Product[] {
+    let filtered =  [...this.products.filter(
+      (product: Product) => product.category === category
+    )]
+    return filtered;
+  }
+
   slideImage(slider: NgImageSliderComponent, move: 'next' | 'prev'): void {
     if (move === 'next') {
       slider.next();
@@ -381,6 +396,5 @@ export class HomeComponent implements AfterViewInit {
   slideNext(slider: NgxslickComponent) {
     slider.showNext();
     console.log(slider);
-    
   }
 }

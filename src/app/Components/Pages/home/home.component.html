@@ -1,4 +1,4 @@
-<div class="container-home">
+<div class="container-home" *ngIf="!isLoading" >
   <!-- Quick Navs -->
   <div class="container-quicknavs">
     <div class="wrapper1280">
@@ -82,14 +82,14 @@
           left="arrLeft"
           right="arrRight"
         >
-          <ng-container *ngFor="let some of [0, 1, 2, 3, 4, 5, 6]">
+          <ng-container *ngFor="let product of getProductsByCategory('electronics')">
             <div class="container-slider-item">
               <div class="container-img">
-                <img src="assets/Images/camera.webp" alt="Camera" />
+                <img [src]="product.image" [alt]="product.title" />
               </div>
-              <p class="title">Top Mirrorless Cameras</p>
+              <p class="title">{{product.slug}}</p>
               <p class="price">Shop Now!</p>
-              <p class="description">Canon, Sony, Fujifilm...</p>
+              <p class="description">{{product.title}}</p>
             </div>
           </ng-container>
         </ngxslick>
@@ -123,14 +123,14 @@
           left="arrLeft"
           right="arrRight"
         >
-          <ng-container *ngFor="let some of [0, 1, 2, 3, 4, 5, 6]">
+          <ng-container *ngFor="let product of getProductsByCategory('beauty')">
             <div class="container-slider-item">
               <div class="container-img">
-                <img src="assets/Images/camera.webp" alt="Camera" />
+                <img [src]="product.image" [alt]="product.title" />
               </div>
-              <p class="title">Top Mirrorless Cameras</p>
+              <p class="title">{{product.slug}}</p>
               <p class="price">Shop Now!</p>
-              <p class="description">Canon, Sony, Fujifilm...</p>
+              <p class="description">{{product.title}}</p>
             </div>
           </ng-container>
         </ngxslick>
@@ -159,14 +159,14 @@
       </div>
       <div class="container-slider">
         <ngxslick class="ngxslider" #sliderMore left="arrLeft" right="arrRight">
-          <ng-container *ngFor="let some of [0, 1, 2, 3, 4, 5, 6]">
+          <ng-container *ngFor="let product of products">
             <div class="container-slider-item">
               <div class="container-img">
-                <img src="assets/Images/camera.webp" alt="Camera" />
+                <img [src]="product.image" [alt]="product.title" />
               </div>
-              <p class="title">Top Mirrorless Cameras</p>
+              <p class="title">{{product.slug}}</p>
               <p class="price">Shop Now!</p>
-              <p class="description">Canon, Sony, Fujifilm...</p>
+              <p class="description">{{product.title}}</p>
             </div>
           </ng-container>
         </ngxslick>
@@ -205,39 +205,39 @@
           right="arrRight"
         >
           <ng-container
-            *ngFor="let some of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+            *ngFor="let product of products"
           >
             <div class="container-slider-item">
-              <div class="container-img">
-                <img src="assets/Images/camera.webp" alt="Camera" />
+              <div class="container-img .container-img-150">
+                <img [src]="product.image" [alt]="product.title" />
               </div>
-              <p class="title">Top Mirrorless Cameras</p>
+              <p class="title">{{product.title}}</p>
               <div class="review">
                 <span class="rating"
-                  >4.3 <fa-icon size="xs" [icon]="iconStar"></fa-icon
+                  >{{product.rating}}<fa-icon size="xs" [icon]="iconStar"></fa-icon
                 ></span>
-                <span class="count">(12,230)</span>
+                <span class="count">({{product.ratingCount}})</span>
               </div>
               <div class="pricing">
                 <div class="cash">
                   <span class="current">{{
-                    380 | currency : "INR" : "symbol" : "1.0-0"
+                    product.price | currency : "INR" : "symbol" : "1.0-0"
                   }}</span>
                   <span class="previous">{{
-                    399 | currency : "INR" : "symbol" : "1.0-0"
+                    product.price + (product.price*product.discount)/100 | currency : "INR" : "symbol" : "1.0-0"
                   }}</span>
                   <span class="discount"
-                    >{{ 1 - 380 / 399 | percent }} off</span
+                    >{{ product.discount/100 | percent }} off</span
                   >
                 </div>
                 <div class="supercoin">
-                  Or Pay {{ 350 | currency : "INR" : "symbol" : "1.0-0" }} +
+                  Or Pay {{ product.price*0.9 | currency : "INR" : "symbol" : "1.0-0" }} +
                   <span
                     ><img
                       src="assets/Icons/supercoin.webp"
                       width="12px"
                       alt=""
-                    />{{ 380 - 350 }}</span
+                    />{{ product.price*0.1 | number:'1.0-0' }}</span
                   >
                 </div>
               </div>

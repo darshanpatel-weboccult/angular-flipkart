@@ -9,6 +9,8 @@ import { FooterModule } from './Components/Partials/footer/footer.module';
 import { LoginModule } from './Components/Pages/login/login.module';
 import { HomeModule } from './Components/Pages/home/home.module';
 import { NgImageSliderModule } from 'ng-image-slider';
+import {HttpClientModule} from '@angular/common/http';
+import { ProductService } from './Shared/product.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,10 @@ import { NgImageSliderModule } from 'ng-image-slider';
     LoginModule,
     HomeModule,
     NgImageSliderModule,
-    NgxSlickModule
+    NgxSlickModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
