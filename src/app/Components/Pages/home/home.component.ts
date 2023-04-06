@@ -380,5 +380,7 @@ export class HomeComponent implements AfterViewInit {
   }
   slideNext(slider: NgxslickComponent) {
     slider.showNext();
+    console.log(slider);
+    
   }
 }

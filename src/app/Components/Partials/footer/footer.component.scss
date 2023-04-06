@@ -1,7 +1,7 @@
 @use "../../../../variables";
 .container {
   &-main-footer {
-    background-color: variables.$color-grey-grade5;
+    background-color: variables.$color-brand-footer;
   }
   &-quicklinks {
     display: flex;
