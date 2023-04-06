@@ -25,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "ng-image-slider": "^7.0.0",
     "ngx-simple-slick": "^2.0.0",
+    "ngx-skeleton-loader": "^7.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxSlickModule } from 'ngx-simple-slick';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 
@@ -16,6 +17,7 @@ import { NgxSlickModule } from 'ngx-simple-slick';
     CommonModule,
     NgImageSliderModule,
     FontAwesomeModule,
+    NgxSkeletonLoaderModule
   ],
   exports:[
     HomeComponent

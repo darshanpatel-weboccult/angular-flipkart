@@ -260,6 +260,7 @@ button.btn-right {
       p.title {
         cursor: pointer;
         line-clamp: 3;
+        font-weight: 400;
         &:hover {
           color: v.$color-brand-blue;
         }
@@ -334,4 +335,7 @@ button.btn-right {
       font-size: 11px;
     }
   }
+}
+.container-skeleton{
+  margin: 10px;
 }
