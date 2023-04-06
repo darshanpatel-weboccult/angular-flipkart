@@ -1,0 +1,60 @@
+@use "../../../../variables" as v;
+.container {
+  &-main-dropdown {
+    z-index: 50;
+    position: absolute;
+    background-color: v.$color-white-bg;
+    top: 99%;
+    width: max-content;    
+  }
+  &-dropdown {
+    display: flex;
+  }
+  &-category {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    min-width: 250px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+
+    a {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      font-size: 14px;
+      text-decoration: none;
+      color: v.$color-black;
+    }
+    .selected {
+        color: v.$color-brand-blue;
+        font-weight: 500;
+        background-color: v.$color-grey-grade7;
+    }
+  }
+
+  &-sub-category {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    min-width: 260px;
+    span{
+        font-size: 12px;
+        color: v.$color-grey-grade4;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    a {
+      display: flex;
+      font-size: 14px;
+      text-decoration: none;
+      color: v.$color-black;
+      justify-content: space-between;
+      padding: 12px;
+      &:hover {
+        color: v.$color-brand-blue;
+        font-weight: 500;
+        background-color: v.$color-grey-grade7;
+      }
+    }
+  }
+}

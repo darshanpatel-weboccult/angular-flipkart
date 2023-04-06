@@ -34,17 +34,32 @@
         <img src="assets/Images/mobiles_thumb.webp" alt="Mobiles" />
         <p>Mobiles</p>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" useDropdown #dropdownFashion>
         <img src="assets/Images/fashion_thumb.webp" alt="Fashion" />
-        <p>Fashion</p>
+        <p>Fashion <fa-icon [icon]="chevronRight"></fa-icon></p>
+        <div class="pointer"></div>
+        <app-dropdown
+          [dropdownData]="dataDropdownFashion"
+          *ngIf="dropdownFashion.hasAttribute('expand')"
+        ></app-dropdown>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" useDropdown #dropdownElectronics>
         <img src="assets/Images/electronics_thumb.webp" alt="Electronics" />
-        <p>Electronics</p>
+        <p>Electronics <fa-icon [icon]="chevronRight"></fa-icon></p>
+        <div class="pointer"></div>
+        <app-dropdown
+          [dropdownData]="dataDropDownElectronics"
+          *ngIf="dropdownElectronics.hasAttribute('expand')"
+        ></app-dropdown>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" useDropdown #dropdownHome>
         <img src="assets/Images/home_thumb.webp" alt="Home" />
-        <p>Home</p>
+        <p>Home <fa-icon [icon]="chevronRight"></fa-icon></p>
+        <div class="pointer"></div>
+        <app-dropdown
+          [dropdownData]="dataDropDownHome"
+          *ngIf="dropdownHome.hasAttribute('expand')"
+        ></app-dropdown>
       </div>
       <div class="quicknav">
         <img src="assets/Images/appliences_thumb.webp" alt="Appliances" />
@@ -58,16 +73,27 @@
         <img src="assets/Images/offers_thumb.webp" alt="Offers" />
         <p>Top Offers</p>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" useDropdown #dropdownBeauty>
         <img
           src="assets/Images/beauty_thumb.webp"
           alt="Beauty, toys and more"
         />
-        <p>Beauty, Toys & More</p>
+        <p>Beauty, Toys & More <fa-icon [icon]="chevronRight"></fa-icon></p>
+        <div class="pointer"></div>
+        <app-dropdown
+          [dropdownData]="dataDropDownBeauty"
+          *ngIf="dropdownBeauty.hasAttribute('expand')"
+        ></app-dropdown>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" useDropdown #dropdownTW>
         <img src="assets/Images/two_wheelers_thumb.webp" alt="Two Wheelers" />
-        <p>Two Wheelers</p>
+        <p>Two Wheelers <fa-icon [icon]="chevronRight"></fa-icon></p>
+        <div class="pointer"></div>
+        <app-dropdown
+          alignment="right"
+          [dropdownData]="dataDropDownTwoWheelers"
+          *ngIf="dropdownTW.hasAttribute('expand')"
+        ></app-dropdown>
       </div>
     </div>
   </div>

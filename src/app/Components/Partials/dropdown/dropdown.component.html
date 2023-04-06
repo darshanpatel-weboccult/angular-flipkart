@@ -1,0 +1,34 @@
+<div
+  class="container-main-dropdown"
+  *ngIf="data.length"
+  [ngStyle]="placementStyle"
+>
+  <div class="container-dropdown">
+    <div class="container-category">
+      <a
+        href="javascript:void(0)"
+        *ngFor="let category of data; let i = index"
+        (mouseenter)="selectedCategory = i"
+        [ngClass]="{
+          selected: selectedCategory === i
+        }"
+        >{{ category.name }}
+        <fa-icon
+          *ngIf="data[i].subCategories?.length && i === selectedCategory"
+          [icon]="chevronRight"
+        ></fa-icon>
+      </a>
+    </div>
+    <div
+      class="container-sub-category"
+      *ngIf="data[selectedCategory].subCategories.length"
+    >
+      <span> MORE IN {{ data[selectedCategory].name | uppercase }}</span>
+      <a
+        href="javascript:void(0)"
+        *ngFor="let subcategory of data[selectedCategory].subCategories"
+        >{{ subcategory }}</a
+      >
+    </div>
+  </div>
+</div>

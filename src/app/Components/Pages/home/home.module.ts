@@ -5,19 +5,22 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxSlickModule } from 'ngx-simple-slick';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { DropdownModule } from '../../Partials/dropdown/dropdown.module';
+import { DropdownDirective } from 'src/app/Shared/dropdown.directive';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     NgxSlickModule,
     CommonModule,
     NgImageSliderModule,
     FontAwesomeModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    DropdownModule,
   ],
   exports:[
     HomeComponent

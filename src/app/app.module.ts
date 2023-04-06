@@ -9,13 +9,11 @@ import { FooterModule } from './Components/Partials/footer/footer.module';
 import { LoginModule } from './Components/Pages/login/login.module';
 import { HomeModule } from './Components/Pages/home/home.module';
 import { NgImageSliderModule } from 'ng-image-slider';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './Shared/product.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +24,9 @@ import { ProductService } from './Shared/product.service';
     HomeModule,
     NgImageSliderModule,
     NgxSlickModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
