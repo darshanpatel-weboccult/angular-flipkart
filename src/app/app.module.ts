@@ -11,6 +11,7 @@ import { HomeModule } from './Components/Pages/home/home.module';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './Shared/product.service';
+import { ProductListModule } from './Components/Pages/product-list/product-list.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { ProductService } from './Shared/product.service';
     NgImageSliderModule,
     NgxSlickModule,
     HttpClientModule,
+    ProductListModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],

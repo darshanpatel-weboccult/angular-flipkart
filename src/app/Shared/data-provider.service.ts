@@ -22,6 +22,11 @@ export interface HomeDropdownData {
 export interface AllData {
   searchData: SearchData[];
   homeDropdownData: HomeDropdownData;
+  productDropdownData: ProductCategory[];
+}
+export interface ProductCategory {
+  name: string;
+  subCategories: { name: string; expand: boolean }[][];
 }
 
 @Injectable({
@@ -34,7 +39,17 @@ export class DataProviderService {
   async getAllData(): Promise<AllData> {
     return await new Promise((resolve, reject) => {
       this.http.get<AllData>(this.DATA_URL).subscribe((data) => {
+        console.log(data);
+
         resolve(data);
+      });
+    });
+  }
+
+  async getProductDropdownData(): Promise<ProductCategory[]> {
+    return await new Promise((resolve, reject) => {
+      this.http.get<AllData>(this.DATA_URL).subscribe((data) => {
+        resolve(data.productDropdownData);
       });
     });
   }
