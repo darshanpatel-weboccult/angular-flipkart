@@ -20,4 +20,7 @@ export class NavbarComponent {
     if(this.router.url.includes('login')) return;
     this.showLogin = true;
   }
+  navigate(...path:string[]):void{
+    this.router.navigate(path);
+  }
 }
