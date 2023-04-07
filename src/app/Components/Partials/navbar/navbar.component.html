@@ -8,12 +8,9 @@
           alt="Flipkart Logo"
           (click)="navigate('')"
         />
-        <a href="javascript:void(0)"
+        <a href="javascript:void(0)" (click)="navigate('products')"
           >Explore <span>Plus</span>
-          <img
-            src="assets/Icons/flipkart-plus.png"
-            alt="Flipkart Plus"
-          />
+          <img src="assets/Icons/flipkart-plus.png" alt="Flipkart Plus" />
         </a>
       </div>
 
@@ -48,10 +45,27 @@
         <div class="container-dropdown">
           <div class="pointer"></div>
           <ul>
-            <li><a href="javascript:void(0)"> <fa-icon [icon]="bellIcon" ></fa-icon> Notification Preferences</a></li>
-            <li><a href="javascript:void(0)"> <fa-icon [icon]="helpIcon" ></fa-icon> 24x7 Customer Care</a></li>
-            <li><a href="javascript:void(0)"> <fa-icon [icon]="advertiseIcon" ></fa-icon> Advertise</a></li>
-            <li><a href="javascript:void(0)"> <fa-icon [icon]="downloadIcon" ></fa-icon> Download App</a></li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="bellIcon"></fa-icon> Notification
+                Preferences</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="helpIcon"></fa-icon> 24x7 Customer Care</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="advertiseIcon"></fa-icon> Advertise</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="downloadIcon"></fa-icon> Download App</a
+              >
+            </li>
           </ul>
         </div>
       </div>

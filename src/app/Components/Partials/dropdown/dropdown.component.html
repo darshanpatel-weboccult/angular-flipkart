@@ -7,6 +7,7 @@
     <div class="container-category">
       <a
         href="javascript:void(0)"
+        (click)="navigate('products')"
         *ngFor="let category of data; let i = index"
         (mouseenter)="selectedCategory = i"
         [ngClass]="{
@@ -26,6 +27,7 @@
       <span> MORE IN {{ data[selectedCategory].name | uppercase }}</span>
       <a
         href="javascript:void(0)"
+        (click)="navigate('products')"
         *ngFor="let subcategory of data[selectedCategory].subCategories"
         >{{ subcategory }}</a
       >

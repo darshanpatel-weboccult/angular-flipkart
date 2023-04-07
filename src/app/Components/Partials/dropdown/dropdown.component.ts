@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CategoryData } from "src/app/Shared/data-provider.service";
 
@@ -17,6 +18,9 @@ export class DropdownComponent implements OnInit {
     left: "50%",
     transform: "translateX(-50%)",
   };
+
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     if (this.align) {
       this.placementStyle = {
@@ -24,5 +28,8 @@ export class DropdownComponent implements OnInit {
         transform: "translateX(0)",
       };
     }
+  }
+  navigate(...path: string[]): void {
+    this.router.navigate(path);
   }
 }

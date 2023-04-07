@@ -13,6 +13,7 @@ import {
   DataProviderService,
   SearchData,
 } from "src/app/Shared/data-provider.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -39,7 +40,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private dataProvider: DataProviderService
+    private dataProvider: DataProviderService,
+    private router:Router
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -55,6 +57,9 @@ export class HomeComponent implements OnInit {
       this.dataDropDownBeauty = data.homeDropdownData.beauty;
       this.dataDropDownTwoWheelers = data.homeDropdownData.twoWheelers;
     });
+  }
+  navigate(...path:string[]):void{
+    this.router.navigate(path);
   }
 
   getProductsByCategory(category: "electronics" | "beauty"): Product[] {

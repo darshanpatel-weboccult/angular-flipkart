@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { faArrowTrendUp, faArrowsDownToLine, faBell, faCartShopping, faChevronDown, faDownload, faMagnifyingGlass, faQuestionCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import {
+  faArrowTrendUp,
+  faBell,
+  faCartShopping,
+  faChevronDown,
+  faDownload,
+  faMagnifyingGlass,
+  faQuestionCircle,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent {
   searchIcon = faMagnifyingGlass;
@@ -16,15 +25,15 @@ export class NavbarComponent {
   helpIcon = faQuestionCircle;
   advertiseIcon = faArrowTrendUp;
   downloadIcon = faDownload;
-  showLogin:boolean = false;
+  showLogin: boolean = false;
 
-  constructor(private router:Router){}
+  constructor(private router: Router) {}
 
-  changeShowLogin(){
-    if(this.router.url.includes('login')) return;
+  changeShowLogin() {
+    if (this.router.url.includes("login")) return;
     this.showLogin = true;
   }
-  navigate(...path:string[]):void{
+  navigate(...path: string[]): void {
     this.router.navigate(path);
   }
 }

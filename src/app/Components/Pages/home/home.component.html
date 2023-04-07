@@ -31,11 +31,11 @@
   <!-- Quick Navs -->
   <div class="container-quicknavs">
     <div class="wrapper1280">
-      <div class="quicknav">
+      <div class="quicknav" (click)="navigate('products')" >
         <img src="assets/Images/grocery_thumb.webp" alt="Grocery" />
         <p>Grocery</p>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" (click)="navigate('products')">
         <img src="assets/Images/mobiles_thumb.webp" alt="Mobiles" />
         <p>Mobiles</p>
       </div>
@@ -66,15 +66,15 @@
           *ngIf="dropdownHome.hasAttribute('expand')"
         ></app-dropdown>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" (click)="navigate('products')">
         <img src="assets/Images/appliences_thumb.webp" alt="Appliances" />
         <p>Appliances</p>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" (click)="navigate('products')">
         <img src="assets/Images/travel_thumb.webp" alt="Travel" />
         <p>Travel</p>
       </div>
-      <div class="quicknav">
+      <div class="quicknav" (click)="navigate('products')">
         <img src="assets/Images/offers_thumb.webp" alt="Offers" />
         <p>Top Offers</p>
       </div>
