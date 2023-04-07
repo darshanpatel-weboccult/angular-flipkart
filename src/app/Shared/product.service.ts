@@ -28,7 +28,6 @@ export class ProductService {
         setTimeout(() => {
           resolve(data as Product[]);
         }, 3000);
-        // resolve(data as Product[]);
       });
     });
     return this.products;

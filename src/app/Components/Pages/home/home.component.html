@@ -263,6 +263,7 @@
         >
           <ng-container *ngFor="let product of products">
             <div class="container-slider-item">
+              <fa-icon [icon]="heartIcon" class="heart" ></fa-icon>
               <div class="container-img .container-img-150">
                 <img [src]="product.image" [alt]="product.title" />
               </div>

@@ -10,15 +10,15 @@
       justify-content: space-between;
       margin: auto;
     }
-    .quicknav{
+    .quicknav {
       display: flex;
       flex-direction: column;
       position: relative;
       align-items: center;
       padding: 12px;
       cursor: pointer;
-      &:hover{
-       & > .pointer{
+      &:hover {
+        & > .pointer {
           display: block;
         }
       }
@@ -37,7 +37,7 @@
       &:hover {
         p {
           color: v.$color-brand-blue;
-          fa-icon{
+          fa-icon {
             transform: rotate(-90deg);
           }
         }
@@ -53,7 +53,7 @@
         display: flex;
         gap: 5px;
         align-items: center;
-        fa-icon{
+        fa-icon {
           transition: all 300ms ease;
           font-size: 10px;
           display: inline;
@@ -280,12 +280,24 @@ button.btn-right {
     &-item {
       padding: 16px;
       align-items: center;
-      
+      position: relative;
+      .heart {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        font-size: 12px;
+        color: v.$color-grey-grade3;
+        cursor: pointer;
+        &.active {
+          color: v.$color-wishlist-red;
+        }
+        z-index: 8;
+      }
       .container-img {
         width: 150px;
         img {
-          width: 150px;
-          height: 150px;
+          width: 130px;
+          height: 130px;
         }
       }
       p.title {
@@ -367,6 +379,6 @@ button.btn-right {
     }
   }
 }
-.container-skeleton{
+.container-skeleton {
   margin: 10px;
 }

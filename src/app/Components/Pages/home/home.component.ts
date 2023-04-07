@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import {
   faChevronLeft,
   faChevronRight,
+  faHeart,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import { NgImageSliderComponent } from "ng-image-slider";
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   chevronLeft = faChevronLeft;
   chevronRight = faChevronRight;
   iconStar = faStar;
+  heartIcon = faHeart;
   products: Product[] = [];
   isLoading: boolean = false;
   data: SearchData[] = [];
