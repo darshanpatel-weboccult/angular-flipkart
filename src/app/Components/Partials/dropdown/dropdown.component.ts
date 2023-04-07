@@ -1,10 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { CategoryData } from "src/app/Shared/data-provider.service";
 
-export interface CategoryData {
-  name: string;
-  subCategories: string[];
-}
+
 
 @Component({
   selector: "app-dropdown",
