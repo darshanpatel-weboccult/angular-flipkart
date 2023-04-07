@@ -1,0 +1,6 @@
+<div class="container-main">
+  <ng-container *ngFor="let item of data; let i = index">
+    <span *ngIf="i !== 0" class="breadcrumb">></span>
+    <span class="data"  [ngStyle]="{maxWidth}" >{{ item }}</span>
+  </ng-container>
+</div>
