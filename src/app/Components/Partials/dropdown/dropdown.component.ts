@@ -2,8 +2,6 @@ import { Component, Input, OnInit } from "@angular/core";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { CategoryData } from "src/app/Shared/data-provider.service";
 
-
-
 @Component({
   selector: "app-dropdown",
   templateUrl: "./dropdown.component.html",
@@ -26,7 +24,5 @@ export class DropdownComponent implements OnInit {
         transform: "translateX(0)",
       };
     }
-
-    console.log(this.placementStyle, this.align);
   }
 }

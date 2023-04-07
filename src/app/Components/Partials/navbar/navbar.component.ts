@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCartShopping, faChevronDown, faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowTrendUp, faArrowsDownToLine, faBell, faCartShopping, faChevronDown, faDownload, faMagnifyingGlass, faQuestionCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,11 @@ export class NavbarComponent {
   searchIcon = faMagnifyingGlass;
   cartIcon = faCartShopping;
   chevronIcon = faChevronDown;
-  closeIcon = faXmark
+  closeIcon = faXmark;
+  bellIcon = faBell;
+  helpIcon = faQuestionCircle;
+  advertiseIcon = faArrowTrendUp;
+  downloadIcon = faDownload;
   showLogin:boolean = false;
 
   constructor(private router:Router){}

@@ -79,6 +79,5 @@ export class HomeComponent implements OnInit {
   }
   slideNext(slider: NgxslickComponent) {
     slider.showNext();
-    console.log(slider);
   }
 }

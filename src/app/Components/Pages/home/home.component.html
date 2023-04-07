@@ -7,16 +7,21 @@
     ></ngx-skeleton-loader>
     <ngx-skeleton-loader
       count="1"
-      [theme]="{ height: '350px', width: '280px', backgroundColor: 'white' }"
+      [theme]="{
+        height: '350px',
+        width: 'calc(100% - 300px)',
+
+        backgroundColor: 'white'
+      }"
       animation="progress-dark"
     ></ngx-skeleton-loader>
     <ngx-skeleton-loader
       count="1"
       [theme]="{
         height: '350px',
-        width: 'calc(100% - 300px)',
-        marginLeft: '20px',
-        backgroundColor: 'white'
+        width: '280px',
+        backgroundColor: 'white',
+        marginLeft: '20px'
       }"
       animation="progress-dark"
     ></ngx-skeleton-loader>

@@ -1,13 +1,15 @@
-@use "../../../../variables";
+@use "../../../../variables" as v;
 
 .container-main-navbar {
-  background-color: variables.$color-brand-blue;
+  background-color: v.$color-brand-blue;
 }
 .container-navbar {
-  padding: 10px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  & > div {
+    padding: 10px 0;
+    display: flex;
+  }
 }
 
 .container-logo {
@@ -19,7 +21,7 @@
   }
   a {
     text-decoration: none;
-    color: variables.$color-white-bg;
+    color: v.$color-white-bg;
     font-style: italic;
     font-size: 11px;
     &:hover {
@@ -30,7 +32,7 @@
       margin-left: 3px;
     }
     span {
-      color: variables.$color-primary-yellow;
+      color: v.$color-primary-yellow;
       font-weight: 500;
     }
   }
@@ -46,13 +48,13 @@
     padding: 5px 16px;
     outline: none;
     width: 100%;
-    background-color: variables.$color-white-bg;
-    border: 2px solid variables.$color-white-bg;
+    background-color: v.$color-white-bg;
+    border: 2px solid v.$color-white-bg;
   }
   .icon {
-    color: variables.$color-brand-blue;
+    color: v.$color-brand-blue;
     padding: 8px 16px;
-    background-color: variables.$color-white-bg;
+    background-color: v.$color-white-bg;
     cursor: pointer;
   }
 }
@@ -61,10 +63,10 @@
   margin: 0 20px;
   a {
     text-decoration: none;
-    background-color: variables.$color-white-bg;
+    background-color: v.$color-white-bg;
     padding: 7px 35px;
     font-weight: 500;
-    color: variables.$color-brand-blue;
+    color: v.$color-brand-blue;
   }
 }
 .container-seller,
@@ -77,18 +79,72 @@
     align-items: center;
     gap: 5px;
     text-decoration: none;
-    color: variables.$color-white-bg;
+    color: v.$color-white-bg;
     font-weight: 500;
   }
 }
 
 .container-more {
+  cursor: pointer;
+  position: relative;
   fa-icon {
     font-size: 10px;
     transition: all 300ms ease;
   }
-  &:hover fa-icon {
-    transform: rotate(180deg);
+  &:hover {
+    fa-icon.more {
+      transform: rotate(180deg);
+    }
+    .container-dropdown {
+      display: block;
+    }
+  }
+  .container-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+    .pointer {
+      position: absolute;
+      height: 0;
+      width: 0;
+      border: 10px solid transparent;
+      border-top: 0;
+      border-bottom-color: v.$color-white-bg;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      background-color: v.$color-white-bg;
+      flex-direction: column;
+      width: 100%;
+      li {
+        a {
+          color: v.$color-black;
+          &:hover {
+            background-color: v.$color-grey-grade0;
+          }
+          padding: 16px 12px;
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          border-bottom: 1px solid v.$color-grey-grade1;
+          fa-icon {
+            font-size: 14px;
+            color: v.$color-brand-blue;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -113,7 +169,7 @@
       cursor: pointer;
       font-size: 1.5em;
       height: fit-content;
-      color: variables.$color-white-bg;
+      color: v.$color-white-bg;
     }
   }
 }

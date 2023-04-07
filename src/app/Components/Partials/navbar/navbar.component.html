@@ -43,8 +43,17 @@
       <!-- More -->
       <div class="container-more">
         <a href="javascript:void(0)"
-          >More <fa-icon [icon]="chevronIcon"></fa-icon
+          >More <fa-icon class="more" [icon]="chevronIcon"></fa-icon
         ></a>
+        <div class="container-dropdown">
+          <div class="pointer"></div>
+          <ul>
+            <li><a href="javascript:void(0)"> <fa-icon [icon]="bellIcon" ></fa-icon> Notification Preferences</a></li>
+            <li><a href="javascript:void(0)"> <fa-icon [icon]="helpIcon" ></fa-icon> 24x7 Customer Care</a></li>
+            <li><a href="javascript:void(0)"> <fa-icon [icon]="advertiseIcon" ></fa-icon> Advertise</a></li>
+            <li><a href="javascript:void(0)"> <fa-icon [icon]="downloadIcon" ></fa-icon> Download App</a></li>
+          </ul>
+        </div>
       </div>
 
       <!-- Cart -->
