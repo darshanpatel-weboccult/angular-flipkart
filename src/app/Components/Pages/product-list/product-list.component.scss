@@ -75,6 +75,25 @@
             }
         }
     }
+    &-product-list-outer{
+        padding: 8px;
+        display: flex;
+        align-items: flex-start;
+    }
+    &-filters{
+        flex: 0 0 270px;
+        max-width: 270px;
+        margin-right: 10px;
+        background-color: v.$color-white-bg;
+        height: 50px;
+        box-shadow: 0 1px 8px 0 rgba(0,0,0,.06);
+        border: 1px solid red;
+    }
+    &-product-list{
+        width: 100%;
+        height: 50px;
+        background-color: v.$color-white-bg;
+    }
 }
 .wrapper-product-navs{
     background-color: v.$color-white-bg;
