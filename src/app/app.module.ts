@@ -1,3 +1,5 @@
+import { TuiRootModule } from "@taiga-ui/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxSlickModule } from 'ngx-simple-slick';
@@ -26,8 +28,10 @@ import { ProductListModule } from './Components/Pages/product-list/product-list.
     NgImageSliderModule,
     NgxSlickModule,
     HttpClientModule,
-    ProductListModule
-  ],
+    ProductListModule,
+      BrowserAnimationsModule,
+      TuiRootModule
+],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })

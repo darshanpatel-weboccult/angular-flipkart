@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { faCaretRight, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faChevronRight, faMagnifyingGlass, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
 import {
   DataProviderService,
   ProductCategory,
@@ -14,7 +14,11 @@ export class ProductListComponent implements OnInit {
   productCategoryData: ProductCategory[] = [];
   chevronRight = faChevronRight;
   caretRight = faCaretRight;
+  xMark = faXmark;
+  star = faStar;
+  search = faMagnifyingGlass;
   selectedCategory:number | null = null;
+  sliderVal:number[] = [0, 1000];
 
   constructor(private dataProvider: DataProviderService) {}
 

@@ -1,4 +1,4 @@
-<div class="container-main-product-list" style="height: 95vh">
+<div class="container-main-product-list">
   <div class="wrapper-product-navs">
     <div class="wrapper">
       <div
@@ -32,8 +32,9 @@
               href="javascript:void(0)"
               *ngFor="let item of subCat"
               [ngClass]="{ bold: item.expand }"
-              >{{ item.name }} <fa-icon *ngIf="item.expand"  [icon]="caretRight" ></fa-icon> </a
-            >
+              >{{ item.name }}
+              <fa-icon *ngIf="item.expand" [icon]="caretRight"></fa-icon>
+            </a>
           </div>
         </div>
       </div>
@@ -42,9 +43,644 @@
 
   <div class="wrapper">
     <div class="container-product-list-outer">
-      <div class="container-filters"></div>
+      <div class="container-filters">
+        <section class="container-filter-title">
+          <div class="filter-title">
+            <h1>Filters</h1>
+            <a href="javascript:void(0)">CLEAR ALL</a>
+          </div>
+          <div class="container-applied-filters">
+            <div class="applied-filter">
+              <fa-icon [icon]="xMark"></fa-icon>
+              <span>Men</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-filter-categories">
+          <span>Categories</span>
+          <div class="container-expand disabled">
+            <div>
+              <fa-icon [icon]="chevronRight" class="left"></fa-icon>
+              <span>Clothing and Accessories</span>
+            </div>
+          </div>
+          <div class="container-expand">
+            <div>
+              <fa-icon [icon]="chevronRight"></fa-icon>
+              <span class="selected">Topwear</span>
+            </div>
+            <div class="subCat">
+              <p>Shirts</p>
+              <p>T-shirts</p>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle container-filter-gender">
+          <div
+            class="toggle-trigger"
+            #genderToggle
+            (click)="genderToggle.classList.toggle('expand')"
+          >
+            <span>gender</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: genderToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="genderToggle.classList.contains('expand')"
+          >
+            <div class="toggle disabled">
+              <div class="fake-check">
+                <fa-icon [icon]="xMark"></fa-icon>
+              </div>
+              <span>Clear all</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" checked />
+              <span>Men</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Women</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Boys</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Girls</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Boys & Girls</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Couple</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Baby Boys</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Baby Girls</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Baby Boys & Baby Girls</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-filter-f_assured">
+          <label for="f-a">
+            <input type="checkbox" id="f-a" />
+            <img src="assets/Icons/f-assured.png" alt="Flipkart Assured" />
+          </label>
+          <span class="question">?</span>
+        </section>
+        <section class="container-filter-price">
+          <span>Price</span>
+          <tui-range
+            [max]="1000"
+            [(ngModel)]="sliderVal"
+            [min]="0"
+            [step]="200"
+            size="m"
+          ></tui-range>
+          <p class="slider">
+            <span *ngFor="let a of [0, 1, 2, 3, 4]" class="slider-dot"></span>
+          </p>
+          <div class="container-select">
+            <select>
+              <option value="0">Min</option>
+              <option value="300">₹300</option>
+              <option value="500">₹500</option>
+              <option value="700">₹700</option>
+              <option value="1000">₹1000</option>
+            </select>
+            <span>to</span>
+            <select>
+              <option value="300">₹300</option>
+              <option value="500">₹500</option>
+              <option value="700">₹700</option>
+              <option value="1000">₹1000</option>
+              <option value="1001" selected>₹1000+</option>
+            </select>
+          </div>
+        </section>
+        <section class="container-filter-supercoin">
+          <label for="spcoin">
+            <input id="spcoin" type="checkbox" />
+            <div class="supercoin">
+              <span>supercoins price</span>
+              <span
+                >Balance:
+                <img
+                  src="assets/Icons/supercoin.webp"
+                  alt="Supercoin"
+                />230</span
+              >
+            </div>
+          </label>
+        </section>
+        <section class="container-toggle ">
+          <div
+            class="toggle-trigger"
+            #brandsToggle
+            (click)="brandsToggle.classList.toggle('expand')"
+          >
+            <span>brand</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: brandsToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="brandsToggle.classList.contains('expand')"
+          >
+          <div class="toggle">
+            <div class="container-brand-search">
+              <fa-icon [icon]="search" ></fa-icon>
+              <input type="text" placeholder="Search Brand">
+            </div>
+          </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>ADIDAS</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Allen Solly</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>BEWAKOOF</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Blackberrys</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>FLYING MACHINE</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>HERE&NOW</span>
+            </div>
+            <div class="toggle showMore">
+              <span>4602 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger "
+            #offersToggle
+            (click)="offersToggle.classList.toggle('expand')"
+          >
+            <span>offers</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: offersToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="offersToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Buy More, Save More</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>No Cost EMI</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Special Price</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #discountToggle
+            (click)="discountToggle.classList.toggle('expand')"
+          >
+            <span>discount</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: discountToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="discountToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>30% or more</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>40% or more</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>50% or more</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>60% or more</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>70% or more</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #ratingToggle
+            (click)="ratingToggle.classList.toggle('expand')"
+          >
+            <span>customer ratings</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: ratingToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="ratingToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span class="container-rating" >4 <fa-icon [icon]="star" ></fa-icon> & above</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span class="container-rating" >5 <fa-icon [icon]="star" ></fa-icon> & above</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #sizeToggle
+            (click)="sizeToggle.classList.toggle('expand')"
+          >
+            <span>size</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: sizeToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="sizeToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>2XL</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>2XS</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>38</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>3XL</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>3XS</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>40</span>
+            </div>
+            <div class="toggle">
+              <span class="showMore" >15 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #occasionToggle
+            (click)="occasionToggle.classList.toggle('expand')"
+          >
+            <span>occasion</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: occasionToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="occasionToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Casual</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Festive</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Beach Wear</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Lounge Wear</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Party</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Formal</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span >Sports</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #colorToggle
+            (click)="colorToggle.classList.toggle('expand')"
+          >
+            <span>color</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: colorToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="colorToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>White</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Black</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Yellow</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Red</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Blue</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Pink</span>
+            </div>
+            <div class="toggle">
+              <span class="showMore" >17 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #fitToggle
+            (click)="fitToggle.classList.toggle('expand')"
+          >
+            <span>fit</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: fitToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="fitToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Slim</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Compression</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Boxy</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Super Slim</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Tailored</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Loose</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Oversized</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Regular</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #patternToggle
+            (click)="patternToggle.classList.toggle('expand')"
+          >
+            <span>pattern</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: patternToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="patternToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Ethnic Motifs</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Woven</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Embellished</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Varsity</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Tribal Print</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Woven Design</span>
+            </div>
+            <div class="toggle">
+              <span class="showMore" >23 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #fabricToggle
+            (click)="fabricToggle.classList.toggle('expand')"
+          >
+            <span>fabric</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: fabricToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="fabricToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Poly Silk</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Georgette</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Lyocell</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Chiffon</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Hemp</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Pure Silk</span>
+            </div>
+            <div class="toggle">
+              <span class="showMore" >22 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #collarToggle
+            (click)="collarToggle.classList.toggle('expand')"
+          >
+            <span>collar</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: collarToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="collarToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Collarless</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Peter Pan</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Wingtip</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Hood</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Ruffle Collar</span>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Lapel</span>
+            </div>
+            <div class="toggle">
+              <span class="showMore" >10 MORE</span>
+            </div>
+          </div>
+        </section>
+        <section class="container-toggle">
+          <div
+            class="toggle-trigger"
+            #availabilityToggle
+            (click)="availabilityToggle.classList.toggle('expand')"
+          >
+            <span>availability</span>
+            <fa-icon
+              [icon]="chevronRight"
+              [ngClass]="{ up: availabilityToggle.classList.contains('expand') }"
+            ></fa-icon>
+          </div>
+          <div
+            class="container-toggles"
+            *ngIf="availabilityToggle.classList.contains('expand')"
+          >
+            <div class="toggle">
+              <input type="checkbox" />
+              <span>Include Out Of Stock</span>
+            </div>
+          </div>
+        </section>
+      </div>
       <div class="container-product-list">
-        <app-breadcrumbs [data]="['Home', 'Clothing and Accessories', 'Top Wear']" maxWidth="80px" ></app-breadcrumbs>
+        <app-breadcrumbs
+          [data]="['Home', 'Clothing and Accessories', 'Top Wear']"
+          maxWidth="80px"
+        ></app-breadcrumbs>
       </div>
     </div>
   </div>
