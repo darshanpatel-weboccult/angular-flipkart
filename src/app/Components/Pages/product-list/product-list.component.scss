@@ -79,6 +79,7 @@
     padding: 8px;
     display: flex;
     align-items: flex-start;
+    min-width: 978px;
   }
   &-filters {
     flex: 0 0 270px;
@@ -91,6 +92,9 @@
     width: 100%;
     background-color: v.$color-white-bg;
     padding: 12px 16px 0;
+    .container-hero {
+      border-bottom: 1px solid #f0f0f0;
+    }
   }
   &-filters {
     section {
@@ -222,7 +226,7 @@
         cursor: pointer;
         font-size: 14px;
       }
-      .showMore{
+      .showMore {
         color: v.$color-brand-blue;
         font-size: 12px;
         font-weight: 500;
@@ -345,25 +349,100 @@
       }
     }
   }
-  &-brand-search{
+  &-brand-search {
     display: flex;
     gap: 2px;
     border-bottom: 2px solid v.$color-grey-grade4;
     width: 100%;
     padding: 2px;
-    &:focus-within{
-      border-color: #2874f0;
+    &:focus-within {
+      border-color: v.$color-brand-blue;
     }
-    fa-icon{
+    fa-icon {
       font-size: 12px;
     }
-    input{
+    input {
       width: 100%;
       font-size: 14px;
       border: 0;
       cursor: text;
       text-indent: 3px;
       outline: 0;
+    }
+  }
+
+  // list
+
+  &-details {
+    padding: 12px 0 4px;
+    p {
+      color: v.$color-grey-grade4;
+      font-size: 12px;
+      line-height: 1.45;
+      letter-spacing: 0;
+      a {
+        text-decoration: none;
+        color: v.$color-brand-blue;
+      }
+    }
+  }
+  &-product-list-title {
+    padding-top: 8px;
+    h1 {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    span {
+      font-size: 12px;
+      margin-left: 10px;
+      color: v.$color-grey-grade4;
+    }
+  }
+
+  &-sortby {
+    display: flex;
+    span {
+      padding: 8px 10px 4px 0;
+      border-bottom: 2px solid transparent;
+      font-size: 14px;
+      cursor: default;
+      font-weight: 500;
+    }
+    div {
+      padding: 8px 0 4px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      font-size: 14px;
+    }
+    .activeSort {
+      color: v.$color-brand-blue;
+      border-color: v.$color-brand-blue;
+      font-weight: 500;
+    }
+  }
+  &-products {
+    display: flex;
+    .container-product {
+      width: 25%;
+      max-width: 25%;
+      overflow: hidden;
+      border: 1px solid red;
+      padding: 0 8px;
+      .container-image {
+        width: 100%;
+        border: 1px solid green;
+        aspect-ratio: 8/10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
     }
   }
 }
@@ -390,12 +469,12 @@
   }
 }
 
-.container-rating{
+.container-rating {
   display: flex;
   align-items: center;
   gap: 2px;
-  fa-icon{
+  fa-icon {
     font-size: 10px;
-    margin-right: 3px;  
+    margin-right: 3px;
   }
 }
