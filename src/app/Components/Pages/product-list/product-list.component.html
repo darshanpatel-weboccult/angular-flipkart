@@ -750,6 +750,7 @@
         </div>
         <div class="container-products">
           <div class="container-product" *ngFor="let product of products">
+            <fa-icon class="wishlistIcon" [icon]="heart"></fa-icon>
             <div class="container-image">
               <img [src]="product.image" alt="test" />
             </div>
@@ -772,10 +773,117 @@
             </div>
           </div>
         </div>
+        <div class="container-pagination">
+          <span class="pageNo"> Page 1 of 765</span>
+          <div class="pagination">
+            <span
+              *ngFor="let page of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+              [ngClass]="{ active: page === 1 }"
+              >{{ page }}</span
+            >
+            <a href="javascript:void(0)">next</a>
+          </div>
+          <span class="placeholder"></span>
+        </div>
+        <div class="container-help">
+          <span>Did you find what you were looking for?</span>
+          <div class="buttons">
+            <span>Yes</span>
+            <span>No</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-additional-data">
+      <div class="quicklinks">
+        <ng-container *ngFor="let link of quickLinks; let i = index">
+          <span *ngIf="i !== 0">,</span>
+          <a href="javascript:void(0)">{{ link }} </a>
+        </ng-container>
+      </div>
+      <div class="container-topic">
+        <h2>Browse Through Latest Topwear for Men, Women, and Kids</h2>
+        <p>
+          Are you looking for ways to refresh your wardrobe? Stay up-to-date
+          with the latest fashion trends by shopping for topwear from your
+          favorite online shopping site Flipkart.
+          <a href="javascript:void(0)">Tops</a>,
+          <a href="javascript:void(0)">shirts</a>,
+          <a href="javascript:void(0)">vests</a>,
+          <a href="javascript:void(0)">tank</a>
+          <a href="javascript:void(0)">tops</a>,
+          <a href="javascript:void(0)">blouses</a>,
+          <a href="javascript:void(0)">T-shirts</a>, crop tops, and more, name
+          it and you can find the one you're looking for on an online shopping
+          store. Browse through the vast collection of men's wear, women's wear,
+          and kid's wear online and enjoy a hassle-free online shopping
+          experience. You can avail amazing deals and discounts on your
+          purchases when you shop online. Also, these clothes will be safely
+          delivered to your doorstep in a couple of days. Look stunning and
+          stylish at every event, party, or occasion by wearing trendy tops.
+          Pair them with coordinating bottom wear and the right kind of
+          footwear, and be ready to receive a ton of compliments wherever you
+          go. When you wear the right type of clothing, you can nail any look,
+          be it casual, formal, or party wear.
+        </p>
+      </div>
+      <div class="container-topic">
+        <span>Explore Topwear Collections Online </span>
+        <p>
+          Keep up with the changing fashion trends by shopping for the best
+          men’s wear from your favorite e-commerce store. Check out the amazing
+          collection of T-shirts for men that are offered by trending brands,
+          such as FastColors, Try This, Smartees, Tripr, Wildcraft, Wrangler,
+          Levi's, Lee, U.S. Polo Assn., W, Peter England, and more. You can buy
+          these T-shirts in different neck types, like polo neck, button-down,
+          shawl neck, collared neck, cowl neck, and more. You can also check out
+          formal, casual, loungewear, beachwear, party wear shirts, and more
+          online. Browse through the huge collection of shirts for men that are
+          offered by popular brands, such as Highlander, Rope, Peter England,
+          Levi's, Asian & Fitch, Metronaut, and more. Also, check out some of
+          the classy and stylish jackets, coats, blazers, and sweaters online.
+        </p>
+        <p>
+          Whether you’re looking for office wear, party wear, casual wear, or
+          home wear, online shopping sites have all types of tops that you’re
+          looking for. Check out the trendy and sophisticated women’s tops
+          online that are sold by brands, such as Vero Moda, People, Fleximaa,
+          U&F, Tokyo Talkies, Harpa, Rebound, Wrangler, Levi's, Lee, and more.
+          You can buy shirts and T-shirts for women in solid colors or go for
+          printed ones as well. Browse through the plethora of women’s shirts
+          and choose the ones that best suit your sense of style.
+        </p>
+        <p>
+          You can also buy stylish topwear for kids from an online store. You
+          can browse through the fabulous collection of kid’s T-shirts and kid’s
+          shirts and buy the ones that will best suit your little ones. Brands,
+          such as Miss & Chief, Gkidz, FabTag - Kiddeo, Allen Solly, and more
+          have an amazing collection of kids’ wear.
+        </p>
+      </div>
+      <div class="container-topic">
+        <span>Buy the Best Topwear Online
+        </span>
+        <p>You can buy the topwear of your choice in just a few click/taps. Log in to Flipkart through your smartphone, tablet, or laptop, browse through the amazing collection of tops, shirts, and blouses, choose the ones that you like, add them to the cart, and buy them in a convenient way. You can choose a preferred payment method during the checkout process. Online shopping helps you save time and lets you purchase the items of your choice even when you’re at home, traveling, or at the office.
+        </p>
+      </div>
+      <div class="container-topic">
+        <p>Popular Searches: <ng-container *ngFor="let link of popularSearches; let i = index">
+          <span *ngIf="i !== 0"> | </span>
+          <a href="javascript:void(0)">{{ link }}</a>
+        </ng-container></p>
       </div>
     </div>
   </div>
 </div>
-<div class="container-btt" [ngStyle]="{transform: showBackToTop ? 'translateY(70px)' : 'translateY(0px)'}" >
-  <button class="backtootop" (click)="goToTop()" > <fa-icon [icon]="chevronRight" ></fa-icon> Back to top</button>
+<!-- ABSOLUTE BUTTON -->
+<div
+  class="container-btt"
+  [ngStyle]="{
+    transform: showBackToTop ? 'translateY(70px)' : 'translateY(0px)'
+  }"
+>
+  <button class="backtootop" (click)="goToTop()">
+    <fa-icon [icon]="chevronRight"></fa-icon> Back to top
+  </button>
 </div>

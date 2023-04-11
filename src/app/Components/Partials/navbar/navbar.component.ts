@@ -36,12 +36,14 @@ export class NavbarComponent {
   showLogin: boolean = false;
   constructor(private router: Router) {}
 
-  changeShowLogin() {
+  changeShowLogin(newVal: boolean) {
     if (this.router.url.includes("login")) return;
-    this.showLogin = true;
+    document.getElementsByTagName("body")[0].style.overflowY = newVal
+      ? "hidden"
+      : "auto";
+    this.showLogin = newVal;
   }
   navigate(...path: string[]): void {
     this.router.navigate(path);
   }
-  
 }

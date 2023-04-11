@@ -216,12 +216,12 @@
 }
 
 .dropbox {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   pointer-events: fill;
-  width: 99vw;
+  width: 100vw;
   display: flex;
   overflow: hidden;
   align-items: center;
