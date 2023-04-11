@@ -125,15 +125,15 @@
         text-overflow: ellipsis;
         text-align: center;
         flex-direction: column;
+        &:hover  .container-img{
+          transform: scale(1.05);
+        }
         .container-img {
           width: 200px;
           display: grid;
           place-items: center;
           aspect-ratio: 1;
           cursor: pointer;
-          &:hover {
-            transform: scale(1.05);
-          }
           img {
             max-width: 200px;
             max-height: 200px;

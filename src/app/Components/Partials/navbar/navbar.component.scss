@@ -6,6 +6,7 @@
 .container-navbar {
   display: flex;
   justify-content: center;
+  min-width: 1170px;
   & > div {
     padding: 10px 0;
     display: flex;
@@ -69,6 +70,7 @@
     background-color: v.$color-white-bg;
     padding: 6px 35px;
     font-weight: 500;
+    font-size: 16px;
     color: v.$color-brand-blue;
   }
   &:hover {
@@ -145,9 +147,14 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 16px;
     text-decoration: none;
     color: v.$color-white-bg;
     font-weight: 500;
+    img{
+      height: 16px;
+      width: 16px;
+    }
   }
 }
 
