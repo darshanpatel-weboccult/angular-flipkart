@@ -28,7 +28,7 @@ export class ProductService {
       this.http.get(this.productsURL).subscribe((data) => {
         setTimeout(() => {
           resolve(data as Product[]);
-        }, 3000);
+        }, 300);
       });
     });
     return this.products;

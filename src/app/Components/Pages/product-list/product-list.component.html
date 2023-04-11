@@ -749,14 +749,33 @@
           </div>
         </div>
         <div class="container-products">
-          <div class="container-product" *ngFor="let a of test" >
+          <div class="container-product" *ngFor="let product of products">
             <div class="container-image">
-              <img [src]="a" alt="test">
+              <img [src]="product.image" alt="test" />
             </div>
-            <h1>hey</h1>
+            <div class="container-details">
+              <span class="brand">{{ product.brand }}</span>
+              <div class="container-title">
+                <span class="title">{{ product.title }}</span>
+                <img src="assets/Icons/f-assured.png" alt="Flipkart Assured" />
+              </div>
+              <div class="container-price">
+                <span class="current">{{
+                  product.price | currency : "INR" : "symbol" : "1.0-0"
+                }}</span>
+                <span class="old">{{
+                  product.price - (product.price * product.discount) / 100
+                    | currency : "INR" : "symbol" : "1.0-0"
+                }}</span>
+                <span class="discount">{{ product.discount }}%</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="container-btt" [ngStyle]="{transform: showBackToTop ? 'translateY(70px)' : 'translateY(0px)'}" >
+  <button class="backtootop" (click)="goToTop()" > <fa-icon [icon]="chevronRight" ></fa-icon> Back to top</button>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import {
   faArrowTrendUp,
@@ -34,7 +34,6 @@ export class NavbarComponent {
   advertiseIcon = faArrowTrendUp;
   downloadIcon = faDownload;
   showLogin: boolean = false;
-
   constructor(private router: Router) {}
 
   changeShowLogin() {
@@ -44,4 +43,5 @@ export class NavbarComponent {
   navigate(...path: string[]): void {
     this.router.navigate(path);
   }
+  
 }
