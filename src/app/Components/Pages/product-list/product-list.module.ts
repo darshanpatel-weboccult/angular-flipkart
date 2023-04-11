@@ -5,6 +5,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BreadcrumbsModule } from '../../Partials/breadcrumbs/breadcrumbs.module';
 import { TuiRangeModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BreadcrumbsModule,
     FormsModule,
     ReactiveFormsModule,
-    TuiRangeModule
+    TuiRangeModule,
+    NgxSkeletonLoaderModule,
+    RouterModule
   ],
   exports:[
     ProductListComponent

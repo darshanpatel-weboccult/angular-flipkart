@@ -667,3 +667,18 @@
     }
   }
 }
+.container-skeleton{
+  margin: 10px;
+  display: grid;
+  grid-template-columns: .17fr .83fr;
+  gap: 10px;
+  width: 100%;
+  div{
+    padding: 30px;
+    display: flex;
+    height: 80vh;
+    background-color: v.$color-white-bg;
+    flex-direction: column;
+    width: 100%;
+  }
+}

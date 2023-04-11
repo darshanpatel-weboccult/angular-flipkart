@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
 import {
   faCaretRight,
   faChevronRight,
@@ -31,7 +32,7 @@ export class ProductListComponent implements OnInit {
   sliderVal: number[] = [0, 1000];
   sortby: string = "popularity";
   showBackToTop: boolean = false;
-  popularSearches:string[] = [
+  popularSearches: string[] = [
     "Sarees",
     " Kurtis",
     "Lehenga",
@@ -49,8 +50,8 @@ export class ProductListComponent implements OnInit {
     "Kurta Pajama ",
     "Designer Sarees",
     "Designer Kurtis",
-    "Designer Salwar Suits "
-];
+    "Designer Salwar Suits ",
+  ];
   quickLinks: string[] = [
     "Arrow Jeans Topwear",
     "Pepe Jeans Topwear",
@@ -76,11 +77,22 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private dataProvider: DataProviderService,
-    private productService: ProductService
-  ) {}
+    private productService: ProductService,
+    private router: Router
+  ) {
+    router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd)) return;
+      this.products = [];
+      this.getProducts();
+    });
+  }
 
   async ngOnInit(): Promise<void> {
     this.productCategoryData = await this.dataProvider.getProductDropdownData();
+    this.getProducts();
+  }
+
+  async getProducts(): Promise<void> {
     let allProducts = await this.productService.getAllProducts();
 
     let updatedProducts: Product[] = [];
@@ -102,5 +114,9 @@ export class ProductListComponent implements OnInit {
       top: 0,
       behavior: "smooth",
     });
+  }
+
+  navigate(...path: string[]) {
+    this.router.navigate(path);
   }
 }
