@@ -5,9 +5,13 @@ import {
   faBell,
   faCartShopping,
   faChevronDown,
+  faCircleUser,
   faDownload,
+  faHeart,
   faMagnifyingGlass,
   faQuestionCircle,
+  faTicket,
+  faWallet,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,6 +27,10 @@ export class NavbarComponent {
   closeIcon = faXmark;
   bellIcon = faBell;
   helpIcon = faQuestionCircle;
+  profile = faCircleUser;
+  heart = faHeart;
+  ticket = faTicket;
+  wallet = faWallet;
   advertiseIcon = faArrowTrendUp;
   downloadIcon = faDownload;
   showLogin: boolean = false;

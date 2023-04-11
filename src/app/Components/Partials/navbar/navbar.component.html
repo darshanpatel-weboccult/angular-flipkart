@@ -30,6 +30,45 @@
       <!-- LOGIN -->
       <div class="container-login">
         <a href="javascript:void(0)" (click)="changeShowLogin()">Login</a>
+        <div class="container-dropdown-login">
+          <div class="pointer"></div>
+          <div class="container-prompt">
+            <span>New customer?</span>
+            <a href="javascript:void(0)">Sign Up</a>
+          </div>
+          <ul>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="profile"></fa-icon> My Profile</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <img src="assets/Icons/f-plus.svg" alt="PLUS"> Flipkart Plus Zone</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <img src="assets/Icons/orders.svg" alt="ORDERS"> Orders</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="heart"></fa-icon> Wishlist</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="ticket"></fa-icon> Rewards</a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <fa-icon [icon]="wallet"></fa-icon> Gift Cards</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Become a seller -->
@@ -42,7 +81,7 @@
         <a href="javascript:void(0)"
           >More <fa-icon class="more" [icon]="chevronIcon"></fa-icon
         ></a>
-        <div class="container-dropdown">
+        <div class="container-dropdown-more">
           <div class="pointer"></div>
           <ul>
             <li>

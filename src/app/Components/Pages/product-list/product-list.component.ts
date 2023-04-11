@@ -34,12 +34,32 @@ export class ProductListComponent implements OnInit {
     console.log(this.productCategoryData);
   }
 
-  test = [this.getUrl(), this.getUrl(),this.getUrl(),this.getUrl()]
-  getUrl():string{
-    let url = 'https://placehold.co/';
-    let width = Math.ceil(Math.random() * 10)*100;
-    let height = (Math.floor(Math.random()*4)*100)+width;
-    url += `${width}x${height}`
+  test = [
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+    this.getUrl(),
+  ];
+  getUrl(): string {
+    let url = "https://placehold.co/";
+    let width = Math.ceil(Math.random() * 10) * 100;
+    let height = Math.floor(Math.random() * 4) * 100 + width;
+    url += `${width}x${height}`;
     console.log(url);
     return url;
   }

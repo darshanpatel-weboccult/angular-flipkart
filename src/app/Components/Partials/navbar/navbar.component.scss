@@ -9,6 +9,7 @@
   & > div {
     padding: 10px 0;
     display: flex;
+    align-items: center;
   }
 }
 
@@ -48,6 +49,7 @@
     padding: 5px 16px;
     outline: none;
     width: 100%;
+    height: 100%;
     background-color: v.$color-white-bg;
     border: 2px solid v.$color-white-bg;
   }
@@ -61,12 +63,77 @@
 
 .container-login {
   margin: 0 20px;
+  position: relative;
   a {
     text-decoration: none;
     background-color: v.$color-white-bg;
-    padding: 7px 35px;
+    padding: 6px 35px;
     font-weight: 500;
     color: v.$color-brand-blue;
+  }
+  &:hover {
+    .container-dropdown-login {
+      display: block;
+    }
+  }
+  .container-dropdown-login {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 240px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+    .pointer {
+      position: absolute;
+      height: 0;
+      width: 0;
+      border: 10px solid transparent;
+      border-top: 0;
+      border-bottom-color: v.$color-white-bg;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .container-prompt {
+      padding: 20px;
+      border-bottom: 1px solid v.$color-grey-grade1;
+      background-color: v.$color-white-bg;
+      display: flex;
+      justify-content: space-between;
+      span,a{
+        font-size: 14px;
+        font-weight: 500;
+        padding: 0;
+      }
+    }
+    ul {
+      list-style: none;
+      display: flex;
+      background-color: v.$color-white-bg;
+      flex-direction: column;
+      width: 100%;
+      li {
+        a {
+          color: v.$color-black;
+          &:hover {
+            background-color: v.$color-grey-grade0;
+          }
+          padding: 16px 20px;
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 18px;
+          border-bottom: 1px solid v.$color-grey-grade1;
+          fa-icon {
+            font-size: 14px;
+            color: v.$color-brand-blue;
+          }
+        }
+      }
+    }
   }
 }
 .container-seller,
@@ -95,11 +162,11 @@
     fa-icon.more {
       transform: rotate(180deg);
     }
-    .container-dropdown {
+    .container-dropdown-more {
       display: block;
     }
   }
-  .container-dropdown {
+  .container-dropdown-more {
     display: none;
     position: absolute;
     top: 100%;

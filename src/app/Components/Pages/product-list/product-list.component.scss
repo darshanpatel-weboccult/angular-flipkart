@@ -424,9 +424,10 @@
   }
   &-products {
     display: flex;
+    flex-wrap: wrap;
     .container-product {
       width: 25%;
-      max-width: 25%;
+      min-width: 25%;
       overflow: hidden;
       border: 1px solid red;
       padding: 0 8px;
