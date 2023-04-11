@@ -225,6 +225,43 @@
         gap: 11px;
         cursor: pointer;
         font-size: 14px;
+        input[type="checkbox"] {
+          display: none;
+        }
+        input:checked {
+          & + .custom-checkbox {
+            background-color: v.$color-brand-blue;
+            border-color: v.$color-brand-blue;
+            &::after {
+              display: block;
+            }
+          }
+        }
+        .custom-checkbox {
+          position: relative;
+          width: 14px;
+          height: 14px;
+          background-color: transparent;
+          border: 1.4px solid v.$color-grey-grade3;
+          border-radius: 1.5px;
+          box-sizing: border-box;
+          display: inline-block;
+          vertical-align: middle;
+          cursor: pointer;
+          &::after {
+            position: absolute;
+            content: "";
+            left: 4px;
+            top: 2px;
+            width: 2px;
+            height: 6px;
+            border: solid v.$color-white-bg;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            backface-visibility: hidden;
+            display: none;
+          }
+        }
       }
       .showMore {
         color: v.$color-brand-blue;
@@ -255,6 +292,43 @@
       display: flex;
       gap: 11px;
       cursor: pointer;
+      input[type="checkbox"] {
+        display: none;
+      }
+      input:checked {
+        & + .custom-checkbox {
+          background-color: v.$color-brand-blue;
+          border-color: v.$color-brand-blue;
+          &::after {
+            display: block;
+          }
+        }
+      }
+      .custom-checkbox {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        border: 1.4px solid v.$color-grey-grade3;
+        border-radius: 1.5px;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          content: "";
+          left: 4px;
+          top: 2px;
+          width: 2px;
+          height: 6px;
+          border: solid v.$color-white-bg;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          backface-visibility: hidden;
+          display: none;
+        }
+      }
       img {
         max-height: 21px;
       }
@@ -325,6 +399,43 @@
       cursor: pointer;
       display: flex;
       align-items: flex-start;
+      input[type="checkbox"] {
+        display: none;
+      }
+      input:checked {
+        & + .custom-checkbox {
+          background-color: v.$color-brand-blue;
+          border-color: v.$color-brand-blue;
+          &::after {
+            display: block;
+          }
+        }
+      }
+      .custom-checkbox {
+        position: relative;
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        border: 1.4px solid v.$color-grey-grade3;
+        border-radius: 1.5px;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        &::after {
+          position: absolute;
+          content: "";
+          left: 4px;
+          top: 2px;
+          width: 2px;
+          height: 6px;
+          border: solid v.$color-white-bg;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+          backface-visibility: hidden;
+          display: none;
+        }
+      }
       .supercoin {
         display: flex;
         margin-left: 11px;
@@ -586,20 +697,20 @@
       font-size: 11px;
       line-height: 16px;
     }
-    .quicklinks{
+    .quicklinks {
       padding-bottom: 16px;
     }
-    .container-topic{
+    .container-topic {
       padding-bottom: 32px;
       display: flex;
       flex-direction: column;
       gap: 16px;
-      h2{
+      h2 {
         font-size: 14px;
         line-height: 16px;
         margin-bottom: -6px;
       }
-      span{
+      span {
         font-weight: 500;
       }
     }
@@ -667,13 +778,13 @@
     }
   }
 }
-.container-skeleton{
+.container-skeleton {
   margin: 10px;
   display: grid;
-  grid-template-columns: .17fr .83fr;
+  grid-template-columns: 0.17fr 0.83fr;
   gap: 10px;
   width: 100%;
-  div{
+  div {
     padding: 30px;
     display: flex;
     height: 80vh;
