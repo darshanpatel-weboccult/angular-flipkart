@@ -1,0 +1,59 @@
+<div class="container-main-product-list">
+    <div class="wrapper-product-navs">
+      <div class="wrapper">
+        <div
+          class="container-product-navs"
+          (mouseleave)="selectedCategory = null"
+        >
+          <span
+            *ngFor="let category of productCategoryData; let i = index"
+            (mouseenter)="selectedCategory = i"
+            [ngClass]="{ selected: selectedCategory === i }"
+            >{{ category.name }}
+            <fa-icon
+              *ngIf="category.subCategories.length"
+              [icon]="chevronRight"
+            ></fa-icon>
+          </span>
+          <div
+            *ngIf="
+              selectedCategory !== null &&
+              productCategoryData[selectedCategory].subCategories.length
+            "
+            class="container-dropdown"
+          >
+            <div
+              *ngFor="
+                let subCat of productCategoryData[selectedCategory].subCategories
+              "
+              class="container-category-column"
+            >
+              <a
+                href="javascript:void(0)"
+                *ngFor="let item of subCat"
+                (click)="navigate('products')"
+                [ngClass]="{ bold: item.expand }"
+                >{{ item.name }}
+                <fa-icon *ngIf="item.expand" [icon]="caretRight"></fa-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- ABSOLUTE BUTTON -->
+  <div
+    class="container-btt"
+    [ngStyle]="{
+      transform: showBackToTop ? 'translateY(70px)' : 'translateY(0px)'
+    }"
+  >
+    <button class="backtootop" (click)="goToTop()">
+      <fa-icon [icon]="chevronRight"></fa-icon> Back to top
+    </button>
+  </div>

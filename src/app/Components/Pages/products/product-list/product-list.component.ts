@@ -8,10 +8,6 @@ import {
   faStar,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  DataProviderService,
-  ProductCategory,
-} from "src/app/Shared/data-provider.service";
 import { Product, ProductService } from "src/app/Shared/product.service";
 
 @Component({
@@ -20,7 +16,6 @@ import { Product, ProductService } from "src/app/Shared/product.service";
   styleUrls: ["./product-list.component.scss"],
 })
 export class ProductListComponent implements OnInit {
-  productCategoryData: ProductCategory[] = [];
   products: Product[] = [];
   chevronRight = faChevronRight;
   caretRight = faCaretRight;
@@ -28,7 +23,6 @@ export class ProductListComponent implements OnInit {
   star = faStar;
   heart = faHeart;
   search = faMagnifyingGlass;
-  selectedCategory: number | null = null;
   sliderVal: number[] = [0, 1000];
   sortby: string = "popularity";
   showBackToTop: boolean = false;
@@ -47,10 +41,10 @@ export class ProductListComponent implements OnInit {
     "Nighty",
     "Shorts",
     "Mens Kurta",
-    "Kurta Pajama ",
+    "Kurta Pajama",
     "Designer Sarees",
     "Designer Kurtis",
-    "Designer Salwar Suits ",
+    "Designer Salwar Suits",
   ];
   quickLinks: string[] = [
     "Arrow Jeans Topwear",
@@ -76,7 +70,6 @@ export class ProductListComponent implements OnInit {
   ];
 
   constructor(
-    private dataProvider: DataProviderService,
     private productService: ProductService,
     private router: Router
   ) {
@@ -88,7 +81,6 @@ export class ProductListComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.productCategoryData = await this.dataProvider.getProductDropdownData();
     this.getProducts();
   }
 
@@ -104,19 +96,9 @@ export class ProductListComponent implements OnInit {
     this.products = updatedProducts;
   }
 
-  @HostListener("window:scroll")
-  checkScroll() {
-    this.showBackToTop =
-      document.documentElement.scrollTop >= window.innerHeight * 2;
-  }
-  goToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-
+  
   navigate(...path: string[]) {
     this.router.navigate(path);
   }
+
 }
