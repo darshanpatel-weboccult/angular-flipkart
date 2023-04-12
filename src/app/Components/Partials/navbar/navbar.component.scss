@@ -118,6 +118,8 @@
       li {
         a {
           color: v.$color-black;
+          display: flex;
+          align-items: center;
           &:hover {
             background-color: v.$color-grey-grade0;
           }
@@ -201,6 +203,8 @@
       li {
         a {
           color: v.$color-black;
+          display: flex;
+          align-items: center;
           &:hover {
             background-color: v.$color-grey-grade0;
           }
