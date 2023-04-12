@@ -1,19 +1,21 @@
 import { TuiRootModule } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxSlickModule } from 'ngx-simple-slick';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavbarModule } from './Components/Partials/navbar/navbar.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FooterModule } from './Components/Partials/footer/footer.module';
-import { LoginModule } from './Components/Pages/login/login.module';
-import { HomeModule } from './Components/Pages/home/home.module';
-import { NgImageSliderModule } from 'ng-image-slider';
-import { HttpClientModule } from '@angular/common/http';
-import { ProductService } from './Shared/product.service';
-import { ProductListModule } from './Components/Pages/product-list/product-list.module';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgxSlickModule } from "ngx-simple-slick";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NavbarModule } from "./Components/Partials/navbar/navbar.module";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { FooterModule } from "./Components/Partials/footer/footer.module";
+import { LoginModule } from "./Components/Pages/login/login.module";
+import { HomeModule } from "./Components/Pages/home/home.module";
+import { NgImageSliderModule } from "ng-image-slider";
+import { HttpClientModule } from "@angular/common/http";
+import { ProductService } from "./Shared/product.service";
+import { ProductsModule } from "./Components/Pages/products/products.module";
+import { ProductListModule } from "./Components/Pages/products/product-list/product-list.module";
+import { ProductModule } from "./Components/Pages/products/product/product.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,10 +30,12 @@ import { ProductListModule } from './Components/Pages/product-list/product-list.
     NgImageSliderModule,
     NgxSlickModule,
     HttpClientModule,
+    ProductsModule,
     ProductListModule,
-      BrowserAnimationsModule,
-      TuiRootModule
-],
+    ProductModule,
+    BrowserAnimationsModule,
+    TuiRootModule,
+  ],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })

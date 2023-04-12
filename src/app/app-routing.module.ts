@@ -1,31 +1,33 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Components/Pages/login/login.component';
-import { HomeComponent } from './Components/Pages/home/home.component';
-import { ProductListComponent } from './Components/Pages/product-list/product-list.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { LoginComponent } from "./Components/Pages/login/login.component";
+import { HomeComponent } from "./Components/Pages/home/home.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent,
-    pathMatch: 'full',
+    pathMatch: "full",
   },
   {
-    path: 'login',
+    path: "login",
     component: LoginComponent,
   },
   {
-    path: 'products',
-    component: ProductListComponent,
+    path: "products",
+    loadChildren: () =>
+      import("src/app/Components/Pages/products/products.module").then(
+        (module) => module.ProductsModule
+      ),
   },
   {
-    path: '**',
-    redirectTo: '',
+    path: "**",
+    redirectTo: "",
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation:'reload'})],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
