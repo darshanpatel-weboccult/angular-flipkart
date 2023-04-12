@@ -1,0 +1,117 @@
+@use "../../../../../variables" as v;
+.container-main-product {
+  width: min(max(100%, 1128px), 1366px);
+  margin: auto;
+  position: relative;
+  padding: 16px;
+  background-color: v.$color-white-bg;
+  display: flex;
+
+  .container-image-gallery {
+    display: flex;
+    flex-direction: column;
+    width: 41.66%;
+    .container-images {
+      display: flex;
+      width: 100%;
+      .container-image-list {
+        height: 448px;
+        ul {
+          display: flex;
+          flex-direction: column;
+          height: 384px;
+          li {
+            list-style: none;
+            height: 64px;
+            border: 1px solid v.$color-grey-grade1;
+            border-right: 0;
+            border-bottom: 0;
+            cursor: pointer;
+            &:last-of-type {
+              border-bottom: 1px solid v.$color-grey-grade1;
+            }
+            &.selected {
+              border: 2px solid v.$color-brand-blue;
+            }
+            img {
+              width: 64px;
+              height: 100%;
+              object-fit: contain;
+              padding: 5px;
+            }
+          }
+        }
+      }
+      .container-image {
+        border: 1px solid v.$color-grey-grade1;
+        width: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .wishlist {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          height: 36px;
+          width: 36px;
+          display: flex;
+          cursor: pointer;
+          border: 1px solid v.$color-grey-grade1;
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+          border-radius: 100%;
+          background-color: v.$color-white-bg;
+          align-items: center;
+          justify-content: center;
+          svg {
+            fill: v.$color-grey-grade3;
+          }
+        }
+        img {
+          cursor: crosshair;
+          flex: 1;
+          max-width: 415px;
+          max-height: 415px;
+          object-fit: contain;
+        }
+      }
+    }
+    .container-action {
+      display: flex;
+      padding: 12px 0 0 64px;
+      justify-content: space-between;
+      & > span {
+        width: 49%;
+        padding: 18px 8px;
+        text-transform: uppercase;
+        background-color: green;
+        font-size: 16px;
+        font-weight: 500;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+        border-radius: 2px;
+        text-align: center;
+        cursor: pointer;
+        &:first-of-type{
+            background-color: v.$color-yellowish-orange;
+        }
+        &:last-of-type{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: v.$color-brand-orange;
+        }
+        color: v.$color-white-bg;
+        svg {
+          margin-right: 4px;
+        }
+        .bolt {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMHY3LjdoMi4xVjE0TDcgNS42SDQuMkw3IDAiIGZpbGw9IiNGRkYiLz48L3N2Zz4=");
+          background-repeat: no-repeat;
+          height: 14px;
+          width: 14px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
