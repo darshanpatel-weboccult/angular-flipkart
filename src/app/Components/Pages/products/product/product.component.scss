@@ -11,6 +11,10 @@
     display: flex;
     flex-direction: column;
     width: 41.66%;
+    align-self: flex-start;
+    position: sticky;
+    top: 64px;
+    bottom: 0;
     .container-images {
       display: flex;
       width: 100%;
@@ -112,6 +116,95 @@
           display: inline-block;
         }
       }
+    }
+  }
+
+  .container-product-details{
+    width: 66.66%;
+    padding-left: 24px;
+    .container-breadcrumbs{
+        display: flex;
+        app-breadcrumbs{
+            flex: 1;
+        }
+
+        .container-compare{
+            max-width: 90px;
+            flex: 1 1 90px;
+            text-align: right;
+            label{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                input[type="checkbox"] {
+                    display: none;
+                }
+                input:checked {
+                    & + .custom-checkbox {
+                        background-color: v.$color-brand-blue;
+                        border-color: v.$color-brand-blue;
+                        &::after {
+                            display: block;
+                        }
+                    }
+                }
+                .custom-checkbox {
+                    position: relative;
+                    width: 14px;
+                    height: 14px;
+                    background-color: transparent;
+                    border: 1.4px solid v.$color-grey-grade3;
+                    border-radius: 1.5px;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        left: 4px;
+                        top: 2px;
+                        width: 2px;
+                        height: 6px;
+                        border: solid v.$color-white-bg;
+                        border-width: 0 2px 2px 0;
+                        transform: rotate(45deg);
+                        backface-visibility: hidden;
+                        display: none;
+                    }
+                  }
+                  span{
+                    margin-left: 8px;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    user-select: none;
+                  }
+            }
+        }
+
+        .container-share{
+            max-width: 90px;
+            flex: 0 0 90px;
+            text-align: right;
+            span{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                &:hover{
+                    color: v.$color-brand-blue;
+                    svg{
+                        fill: v.$color-brand-blue;
+                    }
+                }
+                svg{
+                    margin-bottom: -3px;
+                    fill: v.$color-grey-grade3;
+                }
+                span{
+                    margin-left: 6px;
+                }
+            }
+        }
     }
   }
 }

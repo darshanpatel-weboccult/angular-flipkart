@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from './product.component';
+import { BreadcrumbsModule } from 'src/app/Components/Partials/breadcrumbs/breadcrumbs.module';
 
 
 
@@ -9,7 +10,8 @@ import { ProductComponent } from './product.component';
     ProductComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BreadcrumbsModule
   ],
   exports:[
     ProductComponent
