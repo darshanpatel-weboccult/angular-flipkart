@@ -1,80 +1,5 @@
 @use "../../../../../variables" as v;
 .container {
-  &-product-navs {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    width: min(100%, 1280px);
-    margin: auto;
-    span {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      flex-grow: 1;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      fa-icon {
-        transform: rotate(90deg);
-        font-size: 10px;
-        color: v.$color-grey-grade4;
-      }
-    }
-    .selected {
-      color: v.$color-brand-blue;
-      fa-icon {
-        color: v.$color-brand-blue;
-        transform: rotate(-90deg);
-      }
-    }
-  }
-  &-dropdown {
-    z-index: 10;
-    background-color: v.$color-white-bg;
-    position: absolute;
-    width: 100%;
-    display: flex;
-    top: 100%;
-    left: 50%;
-    border-radius: 0 0 3px 3px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px 1px;
-    transform: translateX(-50%);
-    .container-category-column {
-      &:nth-child(even) {
-        background-color: v.$color-grey-grade7;
-      }
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      align-items: flex-start;
-      padding: 0 25px;
-      a {
-        text-decoration: none;
-        padding: 5px 0;
-        font-size: 13px;
-        color: v.$color-grey-grade14;
-        fa-icon {
-          font-size: 10px;
-          color: v.$color-grey-grade3;
-        }
-        &:first-child {
-          margin-top: 5px;
-        }
-        &:last-child {
-          margin-bottom: 10px;
-        }
-        &.bold {
-          padding: 8px 0;
-          color: v.$color-grey-grade5;
-          font-weight: 500;
-        }
-      }
-    }
-  }
   &-product-list-outer {
     padding: 8px;
     display: flex;
@@ -189,7 +114,6 @@
       }
     }
   }
-
   &-toggle {
     cursor: pointer;
     input {
