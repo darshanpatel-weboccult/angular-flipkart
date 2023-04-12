@@ -1,7 +1,6 @@
 @use "../../../../variables" as v;
 .container-main {
   display: flex;
-  user-select: none;
   font-size: 12px;
   color: v.$color-grey-grade4;
 }
@@ -15,8 +14,9 @@
   overflow: hidden;
   display: inline-block;
   white-space: nowrap;
-  cursor: pointer;
   &:not(:last-of-type):hover {
+    user-select: none;
+    cursor: pointer;
     max-width: fit-content !important;
     color: v.$color-brand-blue;
   }
