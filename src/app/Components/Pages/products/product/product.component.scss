@@ -284,4 +284,46 @@
       }
     }
   }
+  .container-offers {
+    span.title {
+      padding-top: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      display: inline-block;
+    }
+    ul.offers{
+      display: flex;
+      flex-direction: column;
+      li.offer{
+        list-style: none;
+        padding-top: 12px;
+        display: flex;
+        img{
+          height: 18px;
+          width: 18px;
+          margin-right: 10px;
+        }
+        span.offer-type{
+          padding-right: 4px;
+          font-weight: 500;
+          display: inline-block;
+        }
+        span.tnc{
+          font-weight: 500;
+          color: v.$color-brand-bbd;
+          padding-left: 5px;
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+    }
+    a.view-more{
+      text-decoration: none;
+      color: v.$color-brand-blue;
+      font-weight: 500;
+      cursor: pointer;
+      padding-top: 8px;
+      display: inline-block;
+    }
+  }
 }
