@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
   isSignup!: boolean;
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.isSignup = params['signup'] === 'true';
+      this.isSignup = params["signup"] === "true";
     });
   }
   navigate(params: { [key: string]: string }, ...path: string[]): void {
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   signupToggle(newVal: boolean) {
-    if (this.router.url.includes('login')) {
-      this.navigate({ signup: newVal.toString() }, 'login');
+    if (this.router.url.includes("login")) {
+      this.navigate({ signup: newVal.toString() }, "login");
     } else {
       this.isSignup = newVal;
     }

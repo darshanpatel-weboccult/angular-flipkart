@@ -81,6 +81,7 @@ export class ProductListComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    document.title = "Flipkart | Products";
     this.getProducts();
   }
 

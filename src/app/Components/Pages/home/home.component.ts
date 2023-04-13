@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    document.title = "Flipkart | Home"
     this.isLoading = true;
     const newProducts = await this.productService.getAllProducts();
     this.products = newProducts;

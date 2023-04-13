@@ -26,9 +26,9 @@ export class ProductComponent implements OnInit {
         this.router.navigate(["../"], { relativeTo: this.route });
       }
       this.productId = this.currentShowcaseId = Number(params["id"]);
-      this.showcaseImageIds = new Array(6).fill(0).map(
-        (item, index) => (this.productId + index) % 16
-      );
+      this.showcaseImageIds = new Array(6)
+        .fill(0)
+        .map((item, index) => (this.productId + index) % 16);
     });
     let product = await this.productService.getProductById(this.productId);
     if (!product) {
@@ -36,5 +36,6 @@ export class ProductComponent implements OnInit {
       return;
     }
     this.product = product;
+    document.title = product.title;
   }
 }
