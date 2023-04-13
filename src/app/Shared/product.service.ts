@@ -26,10 +26,10 @@ export class ProductService {
   async getAllProducts(): Promise<Product[]> {
     this.products = await new Promise((resolve, reject) => {
       this.http.get<Product[]>(this.productsURL).subscribe((data) => {
-        resolve(data);
-        // setTimeout(() => {
-        //   resolve(data as Product[]);
-        // }, 3000);
+        // resolve(data);
+        setTimeout(() => {
+          resolve(data as Product[]);
+        }, 3000);
       });
     });
     return this.products;
