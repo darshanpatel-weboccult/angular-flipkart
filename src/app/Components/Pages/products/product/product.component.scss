@@ -282,6 +282,72 @@
         color: v.$color-offer-green;
         vertical-align: middle;
       }
+      .info {
+        margin-left: 8px;
+        margin-bottom: -5px;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        .container-dropdown {
+          position: absolute;
+          top: calc(100% + 10px);
+          left: -20px;
+          width: max-content;
+          z-index: 3;
+          background-color: v.$color-white-bg;
+          box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
+          &::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            height: 0;
+            width: 0;
+            border: 10px solid transparent;
+            border-top: 0;
+            border-bottom-color: v.$color-white-bg;
+          }
+          .title {
+            padding: 12px 16px 0;
+            font-weight: 500;
+          }
+          .details {
+            padding: 0 16px;
+            .final {
+              border-top: 1px dashed v.$color-grey-grade2;
+              .detail {
+                p {
+                  color: v.$color-grey-grade5;
+                }
+                span {
+                  text-decoration: none;
+                  font-weight: 500;
+                }
+              }
+            }
+            .detail {
+              margin: 10px 0;
+              font-size: 12px;
+              display: flex;
+              justify-content: space-between;
+              p {
+                font-weight: 500;
+                color: v.$color-grey-grade4;
+                padding-right: 24px;
+                span {
+                  display: block;
+                  font-size: 10px;
+                  font-weight: 400;
+                }
+              }
+              span {
+                text-decoration: line-through;
+              }
+            }
+          }
+        }
+      }
     }
   }
   .container-offers {
@@ -291,24 +357,24 @@
       font-weight: 500;
       display: inline-block;
     }
-    ul.offers{
+    ul.offers {
       display: flex;
       flex-direction: column;
-      li.offer{
+      li.offer {
         list-style: none;
         padding-top: 12px;
         display: flex;
-        img{
+        img {
           height: 18px;
           width: 18px;
           margin-right: 10px;
         }
-        span.offer-type{
+        span.offer-type {
           padding-right: 4px;
           font-weight: 500;
           display: inline-block;
         }
-        span.tnc{
+        span.tnc {
           font-weight: 500;
           color: v.$color-brand-bbd;
           padding-left: 5px;
@@ -317,7 +383,7 @@
         }
       }
     }
-    a.view-more{
+    a.view-more {
       text-decoration: none;
       color: v.$color-brand-blue;
       font-weight: 500;
