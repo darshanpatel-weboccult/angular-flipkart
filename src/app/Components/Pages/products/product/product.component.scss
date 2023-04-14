@@ -780,5 +780,90 @@
         }
       }
     }
+    .container-specifications {
+      margin-top: 24px;
+      border-radius: 2px;
+      position: relative;
+      font-size: 12px;
+      &.hideOverlay {
+        height: 425px;
+        overflow: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 100%;
+          border-bottom: 1px solid v.$color-grey-grade1;
+          height: 80px;
+          background: linear-gradient(hsla(0, 0%, 100%, 0) 5%, #fff);
+          bottom: 0;
+        }
+      }
+      border: 1px solid v.$color-grey-grade1;
+      span.title {
+        display: inline-block;
+        padding: 24px 30px 24px 24px;
+        font-weight: 500;
+        line-height: 1.14;
+        font-size: 24px;
+      }
+      .specification {
+        font-size: 14px;
+        padding: 24px 24px 34px;
+        border-top: 1px solid v.$color-grey-grade1;
+        span.category {
+          padding-bottom: 16px;
+          display: inline-block;
+          font-size: 18px;
+        }
+        .table {
+          display: flex;
+          flex-direction: column;
+          .row {
+            display: grid;
+            grid-template-columns: 25% 75%;
+            padding-bottom: 16px;
+            &:last-child {
+              padding-bottom: 0;
+            }
+            span {
+              display: inline-block;
+              &.col1 {
+                color: v.$color-grey-grade4;
+                padding-right: 8px;
+              }
+              &.col2 {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+      .extra-info {
+        span {
+          cursor: pointer;
+          display: inline-block;
+          width: 100%;
+          padding: 24px;
+          font-size: 16px;
+          border-top: 1px solid v.$color-grey-grade1;
+          font-weight: 400;
+          color: v.$color-brand-blue;
+        }
+      }
+    }
+    .readmore {
+      span {
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        padding: 24px;
+        font-size: 16px;
+        border: 1px solid v.$color-grey-grade1;
+        border-top: 0;
+        font-weight: 400;
+        color: v.$color-brand-blue;
+      }
+    }
   }
 }

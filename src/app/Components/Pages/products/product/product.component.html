@@ -465,5 +465,27 @@
         <p>NA</p>
       </div>
     </div>
+
+    <div
+      class="container-specifications"
+      [ngClass]="{ hideOverlay: showReadMore }"
+    >
+      <span class="title">Specifications</span>
+      <div class="specification" *ngFor="let specification of specifications">
+        <span class="category">{{ specification.category }}</span>
+        <div class="table">
+          <div class="row" *ngFor="let detail of specification.details">
+            <span class="col1">{{ detail.name }}</span>
+            <span class="col2">{{ detail.value }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="extra-info">
+        <span>Manufacturing, Packaging and Import Info</span>
+      </div>
+    </div>
+    <div class="readmore" *ngIf="showReadMore">
+      <span (click)="showReadMore = false">Read More</span>
+    </div>
   </div>
 </div>
