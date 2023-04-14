@@ -1,4 +1,4 @@
-<div class="container-main-product">
+<div class="container-main-product" *ngIf="product">
   <div class="container-image-gallery">
     <div class="container-images">
       <div class="container-image-list">
@@ -98,7 +98,7 @@
       </div>
     </div>
 
-    <div class="container-product-info" *ngIf="product" >
+    <div class="container-product-info">
       <span class="name">{{ product.title }}</span>
       <div class="container-rating">
         <span
@@ -297,6 +297,173 @@
         </li>
       </ul>
       <a href="javascript:void(0)" class="view-more">View 6 more offers</a>
+    </div>
+
+    <div class="container-exchange">
+      <div class="box">
+        <label>
+          <input type="radio" name="exchange" checked />
+          <div class="custom-radio"></div>
+          <div class="data">
+            <span>Buy without Exchange</span>
+            <span>{{
+              product.price | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+        </label>
+        <label>
+          <input type="radio" name="exchange" />
+          <div class="custom-radio"></div>
+          <div class="data">
+            <span>Buy with Exchange</span>
+            <span
+              >up to
+              {{ product.price * 0.2 | currency : "INR" : "symbol" : "1.0-0" }}
+              off</span
+            >
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="container-brand-warrenty">
+      <div class="logo">
+        <img src="assets/Icons/samsung-logo.webp" alt="Samsung Logo" />
+      </div>
+      <div class="warrenty">
+        <span
+          >1 Year Manufacturer Warranty for Device and 6 Months Manufacturer
+          Warranty for In-Box Accessories
+        </span>
+        <a href="javascript:void(0)">Know More</a>
+      </div>
+    </div>
+
+    <div class="container-color-storage">
+      <div class="container-color">
+        <span class="title"> Color </span>
+        <ul class="color">
+          <li *ngFor="let i of [0, 1, 2, 3]">
+            <label
+              ><input type="radio" name="colorRadio" checked /><span>
+                <img
+                  [src]="
+                    'assets/Images/products/' + ((productId + i) % 15) + '.webp'
+                  "
+                  alt="PRODUCT" /></span
+            ></label>
+          </li>
+        </ul>
+      </div>
+      <div class="container-storage">
+        <span class="title">Storage</span>
+        <ul class="storage">
+          <li>
+            <label>
+              <input type="radio" name="storage" checked />
+              <span>128 GB</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="storage" />
+              <span>256 GB</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-delivery">
+      <div class="delivery">
+        <span class="title"> Delivery </span>
+        <div class="content">
+          <div class="pin">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 9 12"
+              class="_1kbGNj"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="_6xm1dD"
+                d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+            <input type="text" placeholder="Enter Delivery Pincode" />
+            <span>Check</span>
+          </div>
+          <div class="estimate">
+            <div>
+              <span>Delivery by 24 Apr, Monday</span>
+              <span>|</span>
+              <span>Free</span>
+              <span>{{ 40 | currency : "INR" : "symbol" : "1.0-0" }}</span>
+              <span class="question">?</span>
+            </div>
+            <div>
+              <span>if ordered before 3:16 PM</span>
+            </div>
+            <div>
+              <span>View Details</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-highlights-epo">
+      <div class="container-highlights">
+        <span class="title">Highlights</span>
+        <ul class="custom-ul">
+          <li>8 GB RAM | 128 GB ROM</li>
+          <li>15.49 cm (6.1 inch) Full HD+ Display</li>
+          <li>50MP + 10MP + 12MP | 12MP Front Camera</li>
+          <li>3900 mAh Lithium Ion Battery</li>
+          <li>Qualcomm Snapdragon 8 Gen 2 Processor</li>
+        </ul>
+      </div>
+      <div class="container-epo">
+        <span class="title">Easy Payment Options</span>
+        <ul class="custom-ul">
+          <li>EMI starting from ₹2,564/month</li>
+          <li>Cash on Delivery</li>
+          <li>Net banking & Credit/ Debit/ ATM card</li>
+          <li class="view-details">View Details</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-seller">
+      <div>
+        <span class="title">Seller</span>
+        <ul class="custom-ul">
+          <li class="name">
+            MYTHANGLORYRetail
+            <span
+              >4.9
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+            /></span>
+          </li>
+          <li>7 Days Replacement Policy</li>
+          <li>GST invoice available</li>
+          <li class="other">See other sellers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-supercoin">
+      <img src="assets/Images/supercoin-ad.webp" alt="SuperCoins" />
+    </div>
+
+    <div class="container-description">
+      <div>
+        <span class="title">Description</span>
+        <p>NA</p>
+      </div>
     </div>
   </div>
 </div>

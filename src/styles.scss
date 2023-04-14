@@ -33,12 +33,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 body{
-    font-family: 'Roboto', sans-serif;
     background-color: variables.$color-page-bg;
     color: variables.$color-grey-grade5;
     line-height: 1.4;
+    letter-spacing: 0;
     font-size: 14px;
 }
 input[type=checkbox]{
