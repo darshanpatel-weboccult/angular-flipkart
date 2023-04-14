@@ -466,26 +466,159 @@
       </div>
     </div>
 
-    <div
-      class="container-specifications"
-      [ngClass]="{ hideOverlay: showReadMore }"
-    >
-      <span class="title">Specifications</span>
-      <div class="specification" *ngFor="let specification of specifications">
-        <span class="category">{{ specification.category }}</span>
-        <div class="table">
-          <div class="row" *ngFor="let detail of specification.details">
-            <span class="col1">{{ detail.name }}</span>
-            <span class="col2">{{ detail.value }}</span>
+    <!-- Specifications + Read more -->
+    <ng-container>
+      <div
+        class="container-specifications"
+        [ngClass]="{ hideOverlay: showReadMore }"
+      >
+        <span class="title">Specifications</span>
+        <div class="specification" *ngFor="let specification of specifications">
+          <span class="category">{{ specification.category }}</span>
+          <div class="table">
+            <div class="row" *ngFor="let detail of specification.details">
+              <span class="col1">{{ detail.name }}</span>
+              <span class="col2">{{ detail.value }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="extra-info">
+          <span>Manufacturing, Packaging and Import Info</span>
+        </div>
+      </div>
+      <div class="readmore" *ngIf="showReadMore">
+        <span (click)="showReadMore = false">Read More</span>
+      </div>
+    </ng-container>
+
+    <div class="container-bought-together">
+      <span class="title">Frequently bought together</span>
+      <div class="products">
+        <div class="product">
+          <div class="container-image">
+            <img [src]="product.image" alt="Something" />
+          </div>
+          <div class="container-info">
+            <span class="title">{{ product.title }}</span>
+            <div class="container-rating">
+              <span
+                class="rating"
+                [ngClass]="{
+                  good: product.rating >= 4,
+                  medium: product.rating < 4 && product.rating >= 2.5,
+                  bad: product.rating < 2.5
+                }"
+              >
+                {{ product.rating }}
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+                  class=""
+                />
+              </span>
+              <span class="rating-count">({{ product.ratingCount }})</span>
+            </div>
+            <div class="container-pricing">
+              <span class="current">{{
+                product.price | currency : "INR" : "symbol" : "1.0-0"
+              }}</span>
+              <span class="old">{{
+                product.price + (product.price * product.discount) / 100
+                  | currency : "INR" : "symbol" : "1.0-0"
+              }}</span>
+              <span class="discount">{{ product.discount }}% off</span>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <label>
+            <input type="checkbox" checked />
+            <div class="custom-checkbox"></div>
+          </label>
+          <div class="container-image">
+            <img
+              [src]="
+                'assets/Images/products/' + ((productId + 1) % 15) + '.webp'
+              "
+              alt="Something"
+            />
+          </div>
+          <div class="container-info">
+            <span class="title"
+              >O2MG Back Cover for SAMSUNG Galaxy S23 5G, SAMSUNG Galaxy
+              S23</span
+            >
+            <div class="container-pricing">
+              <span class="current">{{
+                239 | currency : "INR" : "symbol" : "1.0-0"
+              }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="product">
+          <label>
+            <input type="checkbox" checked />
+            <div class="custom-checkbox"></div>
+          </label>
+          <div class="container-image">
+            <img
+              [src]="
+                'assets/Images/products/' + ((productId + 2) % 15) + '.webp'
+              "
+              alt="Something"
+            />
+          </div>
+          <div class="container-info">
+            <span class="title"
+              >Chronic Tempered Glass Guard for SAMSUNG Galaxy S23 5G</span
+            >
+
+            <div class="container-pricing">
+              <span class="current">{{
+                239 | currency : "INR" : "symbol" : "1.0-0"
+              }}</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="extra-info">
-        <span>Manufacturing, Packaging and Import Info</span>
+      <div class="container-total">
+        <div class="pricing">
+          <div class="price">
+            <span class="item">1 Item</span>
+            <span class="cost">{{
+              product.price | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+          <div class="price">
+            <span class="item">2 Add-ons</span>
+            <span class="cost">{{
+              478 | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+          <div class="price">
+            <span class="item">Total</span>
+            <span class="cost">{{
+              product.price + 478 | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+        </div>
+        <div class="checkout">
+          <button>
+            <svg
+              class="ZOtu09"
+              width="16"
+              height="16"
+              viewBox="0 0 16 15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class=""
+                d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86"
+                fill="#fff"
+              ></path></svg
+            ><span>add 3 items to cart</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="readmore" *ngIf="showReadMore">
-      <span (click)="showReadMore = false">Read More</span>
     </div>
   </div>
 </div>
