@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy":"ng build && firebase deploy",
-    "sync":"git push origin master && ng build && firebase deploy"
+    "deploy": "ng build && firebase deploy",
+    "sync": "git push origin master && ng build && firebase deploy"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +31,7 @@
     "@taiga-ui/icons": "^3.23.1",
     "@taiga-ui/kit": "^3.23.1",
     "angular": "^1.8.3",
+    "ng-circle-progress": "^1.7.1",
     "ng-image-slider": "^7.0.0",
     "ngx-simple-slick": "^2.0.0",
     "ngx-skeleton-loader": "^7.0.0",

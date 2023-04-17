@@ -11,6 +11,10 @@ trim_trailing_whitespace = true
 [*.ts]
 quote_type = double
 
+[*.html]
+linebreak_before_all_elements = true
+max_blank_lines_between_tags = 2
+
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false

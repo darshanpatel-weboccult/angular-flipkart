@@ -620,5 +620,504 @@
         </div>
       </div>
     </div>
+
+    <div class="container-ratings-reviews">
+      <div class="container-title">
+        <span>Ratings & Reviews</span>
+        <button>Rate Product</button>
+      </div>
+
+      <div class="container-ratings">
+        <div class="container-lines">
+          <div class="total">
+            <div class="rating">
+              <span>4.5</span>
+              <span>★</span>
+            </div>
+            <span> {{ product.ratingCount }} Ratings & </span>
+            <span>
+              {{ product.ratingCount * 0.137 | number : "1.0-0" }} Reviews
+            </span>
+          </div>
+
+          <div class="lines">
+            <div class="line">
+              <div class="rating">
+                <span>5</span>
+                <span>★</span>
+              </div>
+              <div class="meter">
+                <div
+                  [ngStyle]="{
+                    width: '100%',
+                    backgroundColor: '#388e2c'
+                  }"
+                ></div>
+              </div>
+              <div class="count">
+                <span>755</span>
+              </div>
+            </div>
+            <div class="line">
+              <div class="rating">
+                <span>4</span>
+                <span>★</span>
+              </div>
+              <div class="meter">
+                <div
+                  [ngStyle]="{
+                    width: '20%',
+                    backgroundColor: '#388e2c'
+                  }"
+                ></div>
+              </div>
+              <div class="count">
+                <span>153</span>
+              </div>
+            </div>
+            <div class="line">
+              <div class="rating">
+                <span>3</span>
+                <span>★</span>
+              </div>
+              <div class="meter">
+                <div
+                  [ngStyle]="{
+                    width: '5%',
+                    backgroundColor: '#388e2c'
+                  }"
+                ></div>
+              </div>
+              <div class="count">
+                <span>22</span>
+              </div>
+            </div>
+            <div class="line">
+              <div class="rating">
+                <span>2</span>
+                <span>★</span>
+              </div>
+              <div class="meter">
+                <div
+                  [ngStyle]="{
+                    width: '2%',
+                    backgroundColor: '#ff9f00'
+                  }"
+                ></div>
+              </div>
+              <div class="count">
+                <span>9</span>
+              </div>
+            </div>
+            <div class="line">
+              <div class="rating">
+                <span>1</span>
+                <span>★</span>
+              </div>
+              <div class="meter">
+                <div
+                  [ngStyle]="{
+                    width: '8%',
+                    backgroundColor: '#ff6161'
+                  }"
+                ></div>
+              </div>
+              <div class="count">
+                <span>56</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-circles">
+          <div class="circle">
+            <circle-progress
+              [percent]="(1.6 * 100) / 5"
+              [title]="'1.6'"
+              [outerStrokeColor]="'#fb641b'"
+            ></circle-progress>
+            <span>Camera</span>
+          </div>
+
+          <div class="circle">
+            <circle-progress
+              [percent]="(4 * 100) / 5"
+              [title]="'4.0'"
+              [outerStrokeColor]="'#388e3c'"
+            ></circle-progress>
+            <span>Battery</span>
+          </div>
+
+          <div class="circle">
+            <circle-progress
+              [percent]="(2.8 * 100) / 5"
+              [title]="'2.8'"
+              [outerStrokeColor]="'#ff9f00'"
+            ></circle-progress>
+            <span>Display</span>
+          </div>
+
+          <div class="circle">
+            <circle-progress
+              [percent]="(4.7 * 100) / 5"
+              [title]="'4.7'"
+              [outerStrokeColor]="'#388e3c'"
+            ></circle-progress>
+            <span>Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-hero-images">
+        <div class="image" *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7]">
+          <img
+            [src]="'assets/Images/products/' + ((productId + i) % 15) + '.webp'"
+            alt="IMG"
+          />
+        </div>
+      </div>
+
+      <div class="container-reviews">
+        <!-- Review 1 -->
+        <div class="review">
+          <div class="title">
+            <span
+              class="rating"
+              [ngClass]="{
+                good: product.rating + 5 >= 4,
+                medium: product.rating + 5 < 4 && product.rating + 5 >= 2.5,
+                bad: product.rating + 5 < 2.5
+              }"
+            >
+              {{ 5 }}
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+                class=""
+              />
+            </span>
+            <span>Must buy!</span>
+          </div>
+
+          <div class="description">
+            <span
+              >Camera quality is like dslr. Compact phone with powerful
+              features. Battery is also good which last a entire day. Overall
+              happy to choose this against iPhone 14
+            </span>
+          </div>
+
+          <div class="images">
+            <div class="image" *ngFor="let i of [0, 1, 2]">
+              <img
+                [src]="
+                  'assets/Images/products/' + ((productId + i) % 15) + '.webp'
+                "
+                alt="IMG"
+              />
+            </div>
+          </div>
+
+          <div class="author">
+            <p class="name">Manish Kumar</p>
+            <div class="certified">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+                class="_2a1p_T"
+              >
+                <g>
+                  <circle cx="6" cy="6" r="6" fill="#878787"></circle>
+                  <path
+                    stroke="#FFF"
+                    stroke-width="1.5"
+                    d="M3 6l2 2 4-4"
+                  ></path>
+                </g>
+              </svg>
+              <span>Certified Buyer, Lucknow</span>
+            </div>
+            <span class="time">1 month ago</span>
+            <div class="action">
+              <div class="like-dislike">
+                <div class="likes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>269</span>
+                </div>
+                <div class="dislikes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>32</span>
+                </div>
+              </div>
+              <div class="more">
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 16 27"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"
+                  ></path>
+                </svg>
+                <div class="dropdown">
+                  <span>Permalink</span>
+                  <span>Report Abuse</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review">
+          <div class="title">
+            <span
+              class="rating"
+              [ngClass]="{
+                good: product.rating + 5 >= 4,
+                medium: product.rating + 5 < 4 && product.rating + 5 >= 2.5,
+                bad: product.rating + 5 < 2.5
+              }"
+            >
+              {{ 5 }}
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+                class=""
+              />
+            </span>
+            <span>Worth every penny </span>
+          </div>
+
+          <div class="description">
+            <span
+              >Upgraded from iPhone 12 mini to s23. Fulfilling my need very
+              nicely. Good camera even better than iPhone 12 mini. Better
+              battery performance. I am not a gamer so don't know about gaming
+              experience.
+            </span>
+          </div>
+
+          <div class="images">
+            <div class="image" *ngFor="let i of [3]">
+              <img
+                [src]="
+                  'assets/Images/products/' + ((productId + i) % 15) + '.webp'
+                "
+                alt="IMG"
+              />
+            </div>
+          </div>
+
+          <div class="author">
+            <p class="name">Prateep Mukherjee</p>
+            <div class="certified">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+                class="_2a1p_T"
+              >
+                <g>
+                  <circle cx="6" cy="6" r="6" fill="#878787"></circle>
+                  <path
+                    stroke="#FFF"
+                    stroke-width="1.5"
+                    d="M3 6l2 2 4-4"
+                  ></path>
+                </g>
+              </svg>
+              <span>Certified Buyer, Singur</span>
+            </div>
+            <span class="time">1 month ago</span>
+            <div class="action">
+              <div class="like-dislike">
+                <div class="likes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>269</span>
+                </div>
+                <div class="dislikes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>32</span>
+                </div>
+              </div>
+              <div class="more">
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 16 27"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"
+                  ></path>
+                </svg>
+                <div class="dropdown">
+                  <span>Permalink</span>
+                  <span>Report Abuse</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review">
+          <div class="title">
+            <span
+              class="rating"
+              [ngClass]="{
+                good: product.rating + 5 >= 4,
+                medium: product.rating + 5 < 4 && product.rating + 5 >= 2.5,
+                bad: product.rating + 5 < 2.5
+              }"
+            >
+              {{ 5 }}
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTYuNSA5LjQzOWwtMy42NzQgMi4yMy45NC00LjI2LTMuMjEtMi44ODMgNC4yNTQtLjQwNEw2LjUuMTEybDEuNjkgNC4wMSA0LjI1NC40MDQtMy4yMSAyLjg4Mi45NCA0LjI2eiIvPjwvc3ZnPg=="
+                class=""
+              />
+            </span>
+            <span>Super!</span>
+          </div>
+
+          <div class="description">
+            <span
+              >Received this beauty on 27 Feb 2023 and hands down to the
+              performance of the phone. This is my first Samsung phone and I am
+              very impressed. The images are spot on, stable videos and can
+              shoot in 8k is a big plus for me. As the gen 2 is very power
+              efficient my phone with moderate usage easily last around a day
+              which is very impressive by a compact smart phone. Cream color is
+              like a treat to watch. Just close your eyes and grab this amazing
+              product by Samsung.
+            </span>
+          </div>
+
+          <div class="images">
+            <div class="image" *ngFor="let i of [4, 5, 6, 7]">
+              <img
+                [src]="
+                  'assets/Images/products/' + ((productId + i) % 15) + '.webp'
+                "
+                alt="IMG"
+              />
+            </div>
+          </div>
+
+          <div class="author">
+            <p class="name">Prateep Mukherjee</p>
+            <div class="certified">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                xmlns="http://www.w3.org/2000/svg"
+                class="_2a1p_T"
+              >
+                <g>
+                  <circle cx="6" cy="6" r="6" fill="#878787"></circle>
+                  <path
+                    stroke="#FFF"
+                    stroke-width="1.5"
+                    d="M3 6l2 2 4-4"
+                  ></path>
+                </g>
+              </svg>
+              <span>Certified Buyer, Singur</span>
+            </div>
+            <span class="time">1 month ago</span>
+            <div class="action">
+              <div class="like-dislike">
+                <div class="likes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>269</span>
+                </div>
+                <div class="dislikes">
+                  <svg
+                    width="20"
+                    height="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.58.006c-.41.043-.794.32-1.01.728-.277.557-2.334 4.693-2.74 5.1-.41.407-.944.6-1.544.6v8.572h7.5c.45 0 .835-.28 1.007-.665 0 0 2.207-6.234 2.207-6.834 0-.6-.47-1.072-1.07-1.072h-3.216c-.6 0-1.07-.535-1.07-1.07 0-.537.835-3.387 1.006-3.944.17-.557-.107-1.157-.664-1.35-.15-.043-.257-.086-.407-.064zM0 6.434v8.572h2.143V6.434H0z"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                  <span>32</span>
+                </div>
+              </div>
+              <div class="more">
+                <svg
+                  width="6"
+                  height="11"
+                  viewBox="0 0 16 27"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 23.207L6.11 13.161 16 3.093 12.955 0 0 13.161l12.955 13.161z"
+                  ></path>
+                </svg>
+                <div class="dropdown">
+                  <span>Permalink</span>
+                  <span>Report Abuse</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="more">
+          <span>All 169 reviews</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
