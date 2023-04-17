@@ -1392,7 +1392,7 @@
             }
           }
         }
-        .more {
+        & >.more {
           font-size: 16px;
           color: v.$color-brand-blue;
           cursor: pointer;
