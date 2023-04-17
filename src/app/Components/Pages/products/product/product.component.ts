@@ -25,7 +25,38 @@ export class ProductComponent implements OnInit {
   product!: Product;
   showcaseImageIds: number[] = [];
   currentShowcaseId: number = 0;
-  showReadMore:boolean = true;
+  showReadMore: boolean = true;
+  searches: string[] = [
+    "IPAD MINI 3 PRICE IN INDIA",
+    "BLACKBERRY CURVE 9320",
+    "620G",
+    "HP ONLINE SHOPPING",
+    "LENOVO VIBE SHOT",
+    "32 GB SD CARD",
+    "POWER BANK CHARGER",
+    "HTC MOBIL",
+    "LENOVO NEW PHONE",
+    "KEYPAD MOBILES",
+    "NOKIA E5 PRICE",
+    "NOKIA LUMIA 620",
+    "GRAND 2 PRICE",
+    "SAMSUNG GALAXY S DUOS PRICE",
+    "SAMSUNG GALAXY EDGE 6",
+    "SONY XPERIA M4 PRICE",
+    "SONY XPERIA ULTRA",
+    "I PHONE 5C",
+    "GIONEE S96",
+    "KARBONN TITANIUM OCTANE PLUS",
+    "LENOVO A6000 PRICE IN INDIA",
+    "ANDROID MOBILE",
+    "MI PRICE",
+    "COMPARE MOBILES INDIA",
+    "SAMSUNG PHONE UNDER 15000",
+    "SAMSUNG ON NXT 32GB",
+    "SAMSUNG GALAXY S4 PRICE",
+    "SAMSUNG S8 PRICE",
+    "V5S PRICE",
+  ];
   specifications: {
     category: string;
     details: { name: string; value: string }[];
