@@ -1,9 +1,85 @@
-@use "../../../../variables";
+@use "../../../../variables" as v;
 .container {
   &-main-login {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+  }
+  &-product-navs {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: min(100%, 1280px);
+    margin: auto;
+    span {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-grow: 1;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      fa-icon {
+        transform: rotate(90deg);
+        font-size: 10px;
+        color: v.$color-grey-grade4;
+      }
+    }
+    .selected {
+      color: v.$color-brand-blue;
+      fa-icon {
+        color: v.$color-brand-blue;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  &-dropdown {
+    z-index: 10;
+    background-color: v.$color-white-bg;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: 100%;
+    left: 50%;
+    border-radius: 0 0 3px 3px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px 1px;
+    transform: translateX(-50%);
+    .container-category-column {
+      &:nth-child(even) {
+        background-color: v.$color-grey-grade7;
+      }
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start;
+      padding: 0 25px;
+      a {
+        text-decoration: none;
+        padding: 5px 0;
+        font-size: 13px;
+        color: v.$color-grey-grade14;
+        fa-icon {
+          font-size: 10px;
+          color: v.$color-grey-grade3;
+        }
+        &:first-child {
+          margin-top: 5px;
+        }
+        &:last-child {
+          margin-bottom: 10px;
+        }
+        &.bold {
+          padding: 8px 0;
+          color: v.$color-grey-grade5;
+          font-weight: 500;
+        }
+      }
+    }
   }
 
   &-login {
@@ -18,11 +94,11 @@
     padding: 40px 35px;
     display: flex;
     flex-direction: column;
-    background-color: variables.$color-brand-blue;
+    background-color: v.$color-brand-blue;
     background-image: url("../../../../assets/Images/login_img.png");
     background-repeat: no-repeat;
     background-position: center 85%;
-    color: variables.$color-white-bg;
+    color: v.$color-white-bg;
     p.login-title {
       font-size: 28px;
       font-weight: 500;
@@ -35,7 +111,7 @@
   }
   &-form {
     padding: 56px 35px 16px;
-    background-color: variables.$color-white-bg;
+    background-color: v.$color-white-bg;
     form {
       display: flex;
       flex-direction: column;
@@ -44,7 +120,7 @@
       & > a {
         margin-bottom: 16px;
         font-weight: 500;
-        color: variables.$color-brand-blue;
+        color: v.$color-brand-blue;
         text-decoration: none;
         text-align: center;
       }
@@ -61,21 +137,21 @@
         border-bottom: 1px solid silver;
         transition: all 300ms ease;
         &:focus {
-          border-color: variables.$color-brand-blue;
+          border-color: v.$color-brand-blue;
         }
       }
       span {
         padding: 34px 0 16px;
         font-size: 12px;
-        color: variables.$color-grey-grade4;
+        color: v.$color-grey-grade4;
         a {
           text-decoration: none;
-          color: variables.$color-brand-blue;
+          color: v.$color-brand-blue;
         }
       }
       button.btn-login {
-        background-color: variables.$color-brand-orange;
-        color: variables.$color-white-bg;
+        background-color: v.$color-brand-orange;
+        color: v.$color-white-bg;
         padding: 10px 0;
         width: 100%;
         border: 0;
@@ -87,7 +163,7 @@
       }
       button.btn-signup {
         text-decoration: none;
-        color: variables.$color-brand-blue;
+        color: v.$color-brand-blue;
         padding: 10px 0;
         box-shadow: 0 1px 2px 0 rgba($color: #000000, $alpha: 0.2);
         width: 100%;
@@ -97,9 +173,16 @@
         font-weight: 500;
         font-size: 15px;
         min-height: 48px;
-        background-color: variables.$color-white-bg;
+        background-color: v.$color-white-bg;
         margin-top: 16px;
       }
     }
   }
+}
+.wrapper-product-navs {
+  background-color: v.$color-white-bg;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.16);
+  z-index: 3;
+  width: 100%;
+  position: relative;
 }

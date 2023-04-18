@@ -1,5 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import {
+  faCaretRight,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  DataProviderService,
+  ProductCategory,
+} from "src/app/Shared/data-provider.service";
 
 @Component({
   selector: "app-login",
@@ -8,10 +16,22 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   isSignup!: boolean;
+  showDropdown!: boolean;
+  chevronRight = faChevronRight;
+  selectedCategory: number | null = null;
+  productCategoryData: ProductCategory[] = [];
+  caretRight = faCaretRight;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataProvider: DataProviderService
+  ) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.showDropdown = this.router.url.includes("login");
+
+    this.productCategoryData = await this.dataProvider.getProductDropdownData();
     this.route.queryParams.subscribe((params) => {
       this.isSignup = params["signup"] === "true";
     });

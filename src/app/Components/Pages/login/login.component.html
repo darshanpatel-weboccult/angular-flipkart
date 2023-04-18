@@ -1,4 +1,48 @@
 <div class="container-main-login">
+
+  <div class="wrapper-product-navs" *ngIf="showDropdown">
+    <div class="wrapper">
+      <div
+        class="container-product-navs"
+        (mouseleave)="selectedCategory = null"
+      >
+        <span
+          *ngFor="let category of productCategoryData; let i = index"
+          (mouseenter)="selectedCategory = i"
+          [ngClass]="{ selected: selectedCategory === i }"
+          >{{ category.name }}
+          <fa-icon
+            *ngIf="category.subCategories.length"
+            [icon]="chevronRight"
+          ></fa-icon>
+        </span>
+        <div
+          *ngIf="
+            selectedCategory !== null &&
+            productCategoryData[selectedCategory].subCategories.length
+          "
+          class="container-dropdown"
+        >
+          <div
+            *ngFor="
+              let subCat of productCategoryData[selectedCategory].subCategories
+            "
+            class="container-category-column"
+          >
+            <a
+              href="javascript:void(0)"
+              *ngFor="let item of subCat"
+              (click)="navigate({},'products')"
+              [ngClass]="{ bold: item.expand }"
+              >{{ item.name }}
+              <fa-icon *ngIf="item.expand" [icon]="caretRight"></fa-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="wrapper">
     <div class="container-login" >
       <div class="container-hero">

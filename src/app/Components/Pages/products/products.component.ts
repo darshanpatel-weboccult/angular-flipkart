@@ -13,8 +13,8 @@ export class ProductsComponent implements OnInit{
   chevronRight = faChevronRight;
   selectedCategory: number | null = null;
   productCategoryData: ProductCategory[] = [];
-  showBackToTop: boolean = false;
   caretRight = faCaretRight;
+  showBackToTop: boolean = false;
 
   constructor(
     private dataProvider: DataProviderService,
