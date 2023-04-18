@@ -16,6 +16,7 @@ import { ProductService } from "./Shared/product.service";
 import { ProductsModule } from "./Components/Pages/products/products.module";
 import { ProductListModule } from "./Components/Pages/products/product-list/product-list.module";
 import { ProductModule } from "./Components/Pages/products/product/product.module";
+import { CartModule } from "./Components/Pages/cart/cart.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { ProductModule } from "./Components/Pages/products/product/product.modul
     ProductModule,
     BrowserAnimationsModule,
     TuiRootModule,
+    CartModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],

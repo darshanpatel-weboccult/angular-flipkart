@@ -1,5 +1,5 @@
-import { Component, HostListener } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, HostListener, OnInit } from "@angular/core";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import {
   faArrowTrendUp,
   faBell,
@@ -20,7 +20,7 @@ import {
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.scss"],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   searchIcon = faMagnifyingGlass;
   cartIcon = faCartShopping;
   chevronIcon = faChevronDown;
@@ -34,7 +34,15 @@ export class NavbarComponent {
   advertiseIcon = faArrowTrendUp;
   downloadIcon = faDownload;
   showLogin: boolean = false;
-  constructor(private router: Router) {}
+  route: string = "";
+  constructor(private router: Router, private rt: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if(!(event instanceof NavigationEnd)) return;
+      this.route = location.pathname;
+    })
+  }
 
   changeShowLogin(newVal: boolean) {
     if (this.router.url.includes("login")) return;

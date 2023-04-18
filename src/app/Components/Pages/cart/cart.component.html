@@ -1,0 +1,53 @@
+<section class="main">
+  <div class="cart-wrapper">
+    <div class="container-cart">
+      <div class="container-cart-type">
+        <a href="javascript:void(0)" (click)="category = 'flipkart'"
+          ><span [ngClass]="{ active: category === 'flipkart' }"
+            >Flipkart</span
+          ></a
+        >
+        <a href="javascript:void(0)" (click)="category = 'grocery'"
+          ><span [ngClass]="{ active: category === 'grocery' }"
+            >Grocery</span
+          ></a
+        >
+      </div>
+      <div class="container-cart-no-items" *ngIf="!cart.length">
+        <div class="container-image">
+          <img src="assets/Images/empty_cart.webp" alt="Empty Cart" />
+        </div>
+        <span class="status">{{
+          user ? "Your cart is empty!" : "Missing Cart items?"
+        }}</span>
+        <span class="tip">{{
+          user
+            ? "Add items to it now."
+            : "Login to see the items you added previously"
+        }}</span>
+        <button [ngClass]="{ login: !user }" (click)="navigate(user ? 'products' : 'login')" >
+          {{ user ? "Shop now" : "Login" }}
+        </button>
+      </div>
+      <div class="container-cart-items" *ngIf="cart.length"></div>
+    </div>
+  </div>
+</section>
+<footer>
+    <div class="container-footer">
+        <div class="links">
+            <span>
+                <span>Policies</span>
+                <a href="javascript:void(0)">Returns Policy</a>
+                <a href="javascript:void(0)">Terms of use</a>
+                <a href="javascript:void(0)">Security</a>
+                <a href="javascript:void(0)">Privacy</a>
+                <a href="javascript:void(0)">Infringement</a>
+            </span>
+            <span>&copy; 2007-2023 Flipkart.com</span>
+        </div>
+        <div class="help">
+            <span>Need help? Visit the <a href="javascript:void(0)">Help Center</a> or <a href="javascript:void(0)">Contact Us</a></span>
+        </div>
+    </div>
+</footer>

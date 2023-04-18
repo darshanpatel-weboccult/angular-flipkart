@@ -1,0 +1,121 @@
+@use "../../../../variables" as v;
+.cart-wrapper {
+  width: min(max(100%, 978px), 1260px);
+  margin: 16px auto 0;
+  padding: 8px;
+  display: flex;
+  .container-cart {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    &-type {
+      margin-bottom: 10px;
+      border-radius: 5px 5px 0 0;
+      background-color: v.$color-white-bg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: v.$color-grey-grade25;
+      font-size: 16px;
+      a {
+        text-decoration: none;
+        color: inherit;
+        border: 0;
+        outline: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        span {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: auto;
+          padding: 17px;
+          width: 50%;
+          text-align: center;
+          &.active {
+            border-bottom: 3px solid v.$color-blue-lighter3;
+            color: v.$color-blue-lighter3;
+          }
+        }
+      }
+    }
+
+    &-no-items {
+      padding: 30px 0 36px;
+      background-color: v.$color-white-bg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .container-image {
+        height: 162px;
+        img {
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+      span {
+        &.status {
+          display: block;
+          font-size: 18px;
+          margin-top: 24px;
+        }
+        &.tip {
+          display: block;
+          font-size: 12px;
+          margin-top: 10px;
+        }
+      }
+      button {
+        font-size: 14px;
+        margin-top: 20px;
+        font-weight: 400;
+        padding: 12px 72px;
+        cursor: pointer;
+        outline: 0;
+        border: 0;
+        background-color: v.$color-brand-blue;
+        color: v.$color-white-bg;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        border: none;
+        &.login{
+            background-color: v.$color-brand-orange;
+        }
+      }
+    }
+  }
+}
+footer{
+    margin-top: 25px;
+    border-top: 1px solid v.$color-grey-grade29;
+    .container-footer{
+        padding: 25px;
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .links{
+            span{
+                &:last-child{
+                    margin-left: 25px;
+                }
+            }           
+            line-height: 31px;
+            // font-weight: 300;
+            color: v.$color-grey-grade18d;
+            a{
+                text-decoration: none;
+                padding: 0 5px;
+                border-right: 1px solid v.$color-grey-grade4;
+                color: inherit;
+                &:last-child{
+                    border-right: 0;
+                }
+            }
+        }
+        
+    }
+}
