@@ -43,4 +43,15 @@ export class ProductService {
       });
     });
   }
+
+  async getProductsById(productIds: number[]): Promise<Product[]> {
+    return await new Promise((resolve, reject) => {
+      this.http.get<Product[]>(this.productsURL).subscribe((data) => {
+        const product = data.filter((product: Product) =>
+          productIds.includes(product.id)
+        );
+        resolve(product);
+      });
+    });
+  }
 }

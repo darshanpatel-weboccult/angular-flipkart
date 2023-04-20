@@ -23,6 +23,7 @@ import { Product, ProductService } from "src/app/Shared/product.service";
 export class ProductComponent implements OnInit {
   productId!: number;
   product!: Product;
+  isInCart: boolean = false;
   showcaseImageIds: number[] = [];
   currentShowcaseId: number = 0;
   showReadMore: boolean = true;
@@ -546,12 +547,17 @@ export class ProductComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    const cart: { id: number; count: number }[] = JSON.parse(
+      localStorage.getItem("cart") ?? "[]"
+    );
     this.route.params.subscribe((params) => {
       if (!params["id"]) return;
       if (isNaN(params["id"])) {
         this.router.navigate(["../"], { relativeTo: this.route });
       }
       this.productId = this.currentShowcaseId = Number(params["id"]);
+      this.isInCart =
+        cart.findIndex((item) => item.id === this.productId) !== -1;
       this.showcaseImageIds = new Array(6)
         .fill(0)
         .map((item, index) => (this.productId + index) % 16);
@@ -563,5 +569,18 @@ export class ProductComponent implements OnInit {
     }
     this.product = product;
     document.title = product.title;
+  }
+
+  addToCart(): void {
+    const cart: { id: number; count: number }[] = JSON.parse(
+      localStorage.getItem("cart") ?? "[]"
+    );
+    cart.push({ id: this.productId, count: 1 });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    this.isInCart = true;
+    this.navigate("cart");
+  }
+  navigate(...path: string[]): void {
+    this.router.navigate(path);
   }
 }

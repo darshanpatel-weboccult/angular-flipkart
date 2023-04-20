@@ -39,8 +39,6 @@ export class DataProviderService {
   async getAllData(): Promise<AllData> {
     return await new Promise((resolve, reject) => {
       this.http.get<AllData>(this.DATA_URL).subscribe((data) => {
-        console.log(data);
-
         resolve(data);
       });
     });

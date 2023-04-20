@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="container-action">
-      <span>
+      <span (click)="isInCart ? navigate('cart') : addToCart()">
         <svg
           class="_1KOMV2"
           width="16"
@@ -52,7 +52,7 @@
             fill="#fff"
           ></path>
         </svg>
-        add to cart
+        {{ isInCart ? "go to cart" : "add to cart" }}
       </span>
       <span>
         <span class="bolt"></span>
@@ -1343,6 +1343,6 @@
   </div>
   <div class="searches">
     <span>MOST SEARCHED IN MOBILES & ACCESSORIES:</span>
-    <a href="javascript:void(0)" *ngFor="let s of searches" >{{s}}</a>
+    <a href="javascript:void(0)" *ngFor="let s of searches">{{ s }}</a>
   </div>
 </footer>

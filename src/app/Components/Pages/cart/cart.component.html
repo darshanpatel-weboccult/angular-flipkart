@@ -1,10 +1,10 @@
-<section class="main">
+<section class="main" *ngIf="cart">
   <div class="cart-wrapper">
     <div class="container-cart">
       <div class="container-cart-type">
         <a href="javascript:void(0)" (click)="category = 'flipkart'"
           ><span [ngClass]="{ active: category === 'flipkart' }"
-            >Flipkart</span
+            >Flipkart {{ cart.length ? "(" + cart.length + ")" : null }}</span
           ></a
         >
         <a href="javascript:void(0)" (click)="category = 'grocery'"
@@ -13,41 +13,205 @@
           ></a
         >
       </div>
+      <div class="container-address" *ngIf="cart.length">
+        <div class="address">
+          <div class="title">
+            <span>Deliver to: </span>
+            <span class="name">WebOccult Technologies</span>
+            <span class="pin">380054</span>
+            <span class="type">office</span>
+          </div>
+          <div class="sub-title">
+            <span
+              >402-403 & 502-503, Akik Tower, Near Pakwan Dining Hall, S.G.
+              Highway, Ahmedabad,</span
+            >
+          </div>
+        </div>
+        <button class="action">Change</button>
+      </div>
       <div class="container-cart-no-items" *ngIf="!cart.length">
         <div class="container-image">
           <img src="assets/Images/empty_cart.webp" alt="Empty Cart" />
         </div>
-        <span class="status">{{
-          user ? "Your cart is empty!" : "Missing Cart items?"
-        }}</span>
-        <span class="tip">{{
-          user
-            ? "Add items to it now."
-            : "Login to see the items you added previously"
-        }}</span>
-        <button [ngClass]="{ login: !user }" (click)="navigate(user ? 'products' : 'login')" >
-          {{ user ? "Shop now" : "Login" }}
-        </button>
+        <span class="status">Your cart is empty!</span>
+        <span class="tip">Add items to it now.</span>
+        <button (click)="navigate('products')">Shop now</button>
       </div>
-      <div class="container-cart-items" *ngIf="cart.length"></div>
+      <div class="container-cart-items" *ngIf="cart.length">
+        <div class="container-item" *ngFor="let item of cart; let i = index">
+          <div class="product-info">
+            <div class="image" (click)="navigate('products', item.id.toString())">
+              <img [src]="item.image" [alt]="item.title" />
+            </div>
+            <div class="details">
+              <a href="javascript:void(0)" (click)="navigate('products', item.id.toString())"  class="name">{{ item.title }}</a>
+              <span class="special">{{ item.brand }}</span>
+              <span class="seller"
+                >Seller: SomebodyIUsedToKnow
+                <img src="assets/Icons/f-assured.png" alt="Flipkart Assured"
+              /></span>
+              <div class="pricing">
+                <span class="old">{{
+                  item.price - (item.price * item.discount) / 100
+                    | currency : "INR" : "symbol" : "1.0-0"
+                }}</span>
+                <span class="current">{{
+                  item.price | currency : "INR" : "symbol" : "1.0-0"
+                }}</span>
+                <span class="discount">{{ item.discount }}% Off</span>
+                <span class="offers"
+                  >3 offers applied
+                  <svg
+                    width="14"
+                    height="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="_3GN0Y0"
+                  >
+                    <g fill="none">
+                      <path d="M-1-1h16v16H-1"></path>
+                      <path
+                        d="M7 0C3.136 0 0 3.136 0 7s3.136 7 7 7 7-3.136 7-7-3.136-7-7-7zm.7 10.5H6.3V6.3h1.4v4.2zm0-5.6H6.3V3.5h1.4v1.4z"
+                        class=""
+                      ></path>
+                    </g></svg
+                ></span>
+              </div>
+            </div>
+            <div class="delivery">
+              <span
+                >Delivery by <span>Mon Apr 26</span>
+                <span class="charges">Free</span>
+                <span class="old">
+                  {{ 40 | currency : "INR" : "symbol" : "1.0-0" }}
+                </span></span
+              >
+            </div>
+          </div>
+          <div class="container-add-on" *ngIf="item.category === 'electronics'">
+            <span class="title">Complete Product Protection</span>
+            <div class="details">
+              <div class="image">
+                <img src="assets/Images/protection.webp" alt="Protection" />
+              </div>
+              <div class="info">
+                <span class="title">Extended Warranty 2 Year</span>
+                <span class="sub-title">2 Year</span>
+                <div class="pricing">
+                  <span class="current">{{
+                    4999 | currency : "INR" : "symbol" : "1.0-0"
+                  }}</span>
+                  <span class="old">{{
+                    5299 | currency : "INR" : "symbol" : "1.0-0"
+                  }}</span>
+                  <span class="discount">5% off</span>
+                </div>
+                <p>
+                  Get Full Warranty Coverage and protection against damages.
+                  Includes free doorstep service and repair with genuine parts
+                  <a href="javascript:void(0)">Know More</a>
+                </p>
+              </div>
+              <div class="action">
+                <button>Add Item</button>
+              </div>
+            </div>
+          </div>
+          <div class="container-actions">
+            <div class="counter">
+              <button
+                (click)="updateCount(i, 'decrement')"
+                [disabled]="item.count === 1"
+              >
+                -
+              </button>
+              <div class="input">
+                <input type="number" [value]="item.count" readonly />
+              </div>
+              <button (click)="updateCount(i, 'increment')">+</button>
+            </div>
+            <span class="later">save for later</span>
+            <span class="remove" (click)="initiateRemove(item.id)">remove</span>
+          </div>
+        </div>
+        <div class="container-place-order">
+          <button>place order</button>
+        </div>
+      </div>
+    </div>
+    <div class="container-right">
+      <div class="container-total" *ngIf="cart.length">
+        <span class="title">price details</span>
+        <div class="total-body">
+          <div class="price">
+            <span>Price ({{ cart.length }} items)</span>
+            <span>{{
+              totalPrice | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+          <div class="price">
+            <span>Discount</span>
+            <span class="offer"
+              >-
+              {{ totalDiscount | currency : "INR" : "symbol" : "1.0-0" }}</span
+            >
+          </div>
+          <div class="price">
+            <span>Delivery Charges</span>
+            <span class="offer">Free</span>
+          </div>
+          <div class="price total">
+            <span>Total Amount</span>
+            <span>{{
+              totalAmount | currency : "INR" : "symbol" : "1.0-0"
+            }}</span>
+          </div>
+          <span class="savings">
+            You will save
+            {{ totalDiscount | currency : "INR" : "symbol" : "1.0-0" }} on this
+            order
+          </span>
+        </div>
+      </div>
+      <div class="secure">
+        <span
+          >Safe and Secure Payments.Easy returns.100% Authentic products.
+        </span>
+      </div>
     </div>
   </div>
 </section>
-<footer>
-    <div class="container-footer">
-        <div class="links">
-            <span>
-                <span>Policies</span>
-                <a href="javascript:void(0)">Returns Policy</a>
-                <a href="javascript:void(0)">Terms of use</a>
-                <a href="javascript:void(0)">Security</a>
-                <a href="javascript:void(0)">Privacy</a>
-                <a href="javascript:void(0)">Infringement</a>
-            </span>
-            <span>&copy; 2007-2023 Flipkart.com</span>
-        </div>
-        <div class="help">
-            <span>Need help? Visit the <a href="javascript:void(0)">Help Center</a> or <a href="javascript:void(0)">Contact Us</a></span>
-        </div>
+<footer *ngIf="cart">
+  <div class="container-footer">
+    <div class="links">
+      <span>
+        <span>Policies</span>
+        <a href="javascript:void(0)">Returns Policy</a>
+        <a href="javascript:void(0)">Terms of use</a>
+        <a href="javascript:void(0)">Security</a>
+        <a href="javascript:void(0)">Privacy</a>
+        <a href="javascript:void(0)">Infringement</a>
+      </span>
+      <span>&copy; 2007-2023 Flipkart.com</span>
     </div>
+    <div class="help">
+      <span
+        >Need help? Visit the <a href="javascript:void(0)">Help Center</a> or
+        <a href="javascript:void(0)">Contact Us</a></span
+      >
+    </div>
+  </div>
 </footer>
+<div class="background" *ngIf="showOverlay" (click)="cancelDelete()">
+  <div class="container-popup">
+    <div class="prompt" (click)="$event.stopPropagation()">
+      <span class="title">Remove Item</span>
+      <span class="confirm">Are you sure you want to remove this item? </span>
+      <div class="action">
+        <button (click)="cancelDelete()">cancel</button>
+        <button (click)="deleteItem()">remove</button>
+      </div>
+    </div>
+    <span>✕</span>
+  </div>
+</div>
