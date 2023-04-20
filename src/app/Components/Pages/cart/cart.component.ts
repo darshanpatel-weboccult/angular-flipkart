@@ -59,6 +59,7 @@ export class CartComponent implements OnInit {
   initiateRemove(id:number):void{
     this.deleteId = id;
     this.showOverlay = true;
+    document.getElementsByTagName('body')[0].style.overflow = 'hidden';
   }
 
   deleteItem(): void {
@@ -72,10 +73,14 @@ export class CartComponent implements OnInit {
     );
     this.deleteId = null;
     this.showOverlay = false;
+    document.getElementsByTagName('body')[0].style.overflow = 'auto';
+
   }
   cancelDelete():void{
     this.showOverlay = false;
     this.deleteId = null;
+    document.getElementsByTagName('body')[0].style.overflow = 'auto';
+
   }
 
   updateCount(index: number, action: "increment" | "decrement"): void {
